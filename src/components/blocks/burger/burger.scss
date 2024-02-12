@@ -3,60 +3,49 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
   min-width: unset;
   padding: 0;
   border: none;
   transition: $transition;
   cursor: pointer;
 
-  @media (min-width: $lg-width) {
-    width: 45px;
-    height: 45px;
-  }
-
-  &--down {
-    transform: rotate(90deg);
-  }
-
-  &:hover,
-  &:focus {
-    & use.icon__symbol {
-      stroke: $secondary;
-    }
-  }
-
   & .icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
+  }  
+}
 
-    @media (min-width: $lg-width) {
-      width: 45px;
-      height: 45px;
+.main-header {
+  & .burger-button {
+    width: 20%;
+    max-width: 74px;
+    height: 74px;
+
+    @media (min-width: $xl-width) {
+      display: none;
     }
+    
   }
 
-  & use.icon__symbol {
-    stroke: $dark-gray;
+  &--dark {
+    & .burger-button {
+      & use.icon__symbol {
+        fill: $light-gray;
+      }
+      border-left: 1px solid $dark-gray;
+      
+    }
+    
   }
 
-
-}
-
-.main-header .burger-button {
-  position: relative;
-  z-index: 5;
-
-  @media (min-width: $lg-width) {
-    display: none;
+  &--light {
+    & .burger-button {
+      & use.icon__symbol {
+        fill: $text-black;
+      }
+      border-left: 1px solid $text-gray;
+      
+    }
+    
   }
-}
-
-.main-header--fixed .burger-button {
-  @media (min-width: $lg-width) {
-    display: inline-flex;
-  }
-
-
 }

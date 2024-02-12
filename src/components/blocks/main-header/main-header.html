@@ -1,8 +1,18 @@
-<header class="main-header page__section">
-<<<<<<< HEAD
-    
-=======
-    <h1 class="page__title">Заголовок</h1>
-    <p>Описание 2</p>
->>>>>>> fe89dd011b111304f07c5eef6c8d6b488b990ec5
+<header class="main-header main-header--dark">    
+    <div class="main-header__wrap">
+        <div class="main-header__logo-wrap">
+            <a class="logo">
+                <img class="logo__img" src="../logo/logo-light.png" alt="Логотип Кетра">
+                <p class="logo__text">Завод строительной керамики</p>
+            </a>  
+        </div>
+        <include src="./src/components/blocks/main-nav/main-nav.html"></include>               
+        <a href="#" class="main-header__phone">
+            <svg class="icon" width="24px" height="24px" fill="none">
+                <use class="icon__symbol" xlink:href="#icon-phone"></use>
+            </svg>
+            <p>8 (800) 500-49-42<span>Бесплатный звонок по всей России</span></p>
+        </a>
+        <include src="./src/components/blocks/burger/burger.html"></include>    
+    </div>
 </header>

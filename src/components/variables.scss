@@ -1,21 +1,27 @@
 //breakpoints
 $sm-width: 320px;/*Экстрамалые девайсы («телефоны», < 576px)*/
 $md-width: 576px;/*Малые девайсы («ландшафтные телефоны», >= 576px)*/
-$mobile-width-only: 767.98px;/*Только для мобилок*/
+
 $md-width: 768px;/*Средние девайсы («таблетки», >= 768px)*/
 $lg-width: 1024px;/*Большие девайсы (десктопы, >= 992px)*/
+$mobile-width-only: 1199.98px;/*Только для мобилок*/
 $xl-width: 1200px;/*Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
 
 //color
+$dark: #000000;
+$light: #ffffff;
+$light-gray: #F1F1F1;
+$dark-gray: #C8C8C8;
+$text-black: #2E2E2E;
+$text-gray: #5C5C5C;
+
+
 $main: #EB3E2B;
 $main-dark: #D13726;
 $secondary: #1175D0;
-$light: #ffffff;
 $superlight: #F9F9F9;
-$light-gray: #EAEBEC;
 $gray: #B5B5B5;
 $dark-gray: #4E4E4E;
-$dark: #000000;
 $status: #FFE69A;
 
 $text-main: $dark;

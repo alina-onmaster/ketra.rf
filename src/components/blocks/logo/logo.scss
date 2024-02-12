@@ -1,0 +1,27 @@
+.logo {
+    color: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    flex-direction: row;
+    font-size: 12px;
+
+    &__img {
+        width: 3em;
+        aspect-ratio: 36 / 58;
+        object-position: center;
+        object-fit: contain;
+    }
+
+    &__text {
+        @include text-logo;
+        text-transform: uppercase;
+        width: 8.3em;
+        margin-left: 1.08em;
+    }
+}
+
+.main-header {
+    &--dark {
+        color: inherit;
+    }
+}

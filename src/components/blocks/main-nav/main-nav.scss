@@ -1,0 +1,51 @@
+.main-nav {
+    @media (max-width: $mobile-width-only) {
+        position: fixed;
+        top: 0;
+        left: 0;    
+        z-index: -1;
+        width: 100%;
+        min-height: 100px;
+        padding: 100px 0 0;
+        transition: $transition;
+        
+    }
+
+    &--closed {
+        transform: translateY(-100%);
+    }
+
+    &--opened {
+        transform: translateY(0);
+    }
+
+    @media (min-width: $xl-width) {
+        flex-grow: 1;
+        
+    }
+
+    &__wrap {
+        @media (min-width: $xl-width) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    
+}
+
+.main-header {
+    &--dark {
+        & .main-nav {
+            background-color: $dark;
+        }
+    }
+
+    &--light {
+        & .main-nav {
+            background-color: $light;
+        }
+    }
+}
+

@@ -42,7 +42,7 @@ export const img = (done) => {
 
 
         // Возьми все изображения из папки
-        return app.gulp.src(app.basePath.blocks + '/' + block + '/*.{jpg,jpeg,png}')
+        return app.gulp.src(app.path.src.imgOpt + '/' + block + '/*.{jpg,jpeg,png}')
 
             .pipe(app.plugins.plumber(
                 app.plugins.notify.onError({
@@ -51,19 +51,9 @@ export const img = (done) => {
                 }))
             )
 
-            .pipe(responsive(config, {
-                errorOnEnlargement: false,
-                quality: 80,
-                withMetadata: false,
-                compressionLevel: 7,
-            }))
-
             .pipe(app.gulp.dest(app.path.build.images + '/' + block + '/'))
             .pipe(webp())
             .pipe(app.gulp.dest(app.path.build.images + '/' + block + '/'))
-
-        /*.pipe(gulpAvif({quality: 30}))
-        .pipe(app.gulp.dest('./dev/img/section/'))*/
 
     });
     done();
