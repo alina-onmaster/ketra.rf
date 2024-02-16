@@ -1,6 +1,7 @@
 .main-header {
-    position: relative;
-    z-index: 10;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 
     &--dark {
         & .main-header {
@@ -48,8 +49,7 @@
                 border-left: 1px solid $text-gray;
             }   
         }        
-    }
-    
+    }    
 
     &__wrap {
         position: relative;

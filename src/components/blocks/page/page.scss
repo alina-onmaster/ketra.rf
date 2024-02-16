@@ -1,7 +1,12 @@
 .page {
   &__section {
     padding-top: 30px;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
+
+    @media (min-width: $xl-width) {
+      padding-top: 60px;
+      padding-bottom: 105px;
+    }
   }
 
   &__wrap {
@@ -10,7 +15,5 @@
 
   &__title {
     @include h1;
-  }
-
-  
+  }  
 }

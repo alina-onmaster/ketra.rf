@@ -1,0 +1,106 @@
+.product {
+    background-image: url("../product/product-bg.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+
+    & .page__wrap {
+        @media (min-width: $xl-width) {
+            display: grid;
+            grid-template-columns: 370px 1fr;
+            grid-template-areas: "title title" "text list" "button list";
+            align-items: start;
+            justify-items: start;
+            column-gap: 220px;
+        }
+    }
+    
+
+    &__title {
+        position: relative;
+        @include mp;
+        @include h1;
+        margin-bottom: 20px;
+
+        @media (min-width: $xl-width) {
+            margin-bottom: 130px;
+            grid-area: title;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: -20px;
+            width: 4px;
+            height: 31px;
+            background-color: $main;
+
+            @media (min-width: $lg-width) {
+                top: 19px;
+                width: 4px;
+                height: 45px;
+            }
+        }
+    }
+
+    &__text {
+        @include text;
+        margin-bottom: 20px;
+
+        @media (min-width: $xl-width) {
+            margin-bottom: 30px;
+            grid-area: text;
+        }
+    }
+
+    &__list {
+        @include list;
+        @include text;
+        margin-bottom: 30px;
+
+        @media (min-width: $md-width) {
+            column-count: 2;
+        }
+
+        @media (min-width: $xl-width) {
+            grid-area: list;
+            margin-bottom: 0;
+        }
+
+        & li {
+            position: relative;
+            padding: 20px 0 20px 25px;
+            border-top: 1px solid;
+            border-color: $dark-gray;
+
+            &:last-child {
+                border-bottom: 1px solid;
+            }
+
+            @media (min-width: $md-width) {
+                &:nth-child(4n) {
+                    border-bottom: 1px solid;
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 15px;
+                height: 4px;
+                background-color: $main;
+
+            }
+        }
+    }
+
+    &__link-more {
+        @media (min-width: $xl-width) {
+            grid-area: button;
+            align-self: end;
+        }
+    }
+}

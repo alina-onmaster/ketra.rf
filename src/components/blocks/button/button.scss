@@ -1,5 +1,6 @@
-.btn {
+.button {
   @include btn-reset;
+  @include link;
   box-sizing: border-box;
   display: inline-flex;
   justify-content: center;
@@ -7,29 +8,16 @@
   border: 1px solid;
   transition: $transition;
   text-align: center;
+  min-height: 57px;
+  padding: 15px 30px;
 
   & use.icon__symbol {
     transition: $transition;
   }
 
   &--main {
-    @include text-normal;
-    padding: 5px 15px;
-    min-height: 25px;
     background-color: $main;
     border-color: $main;
-    color: $light;
-
-    @media (min-width: $md-width) {
-      @include text-normal;
-      padding: 10px 30px;
-      min-height: 45px;
-    }
-
-    &:hover,
-    &:focus {
-      background-color: $main-dark;
-      border-color: $main-dark;
-    }
+    color: $text-black;
   }
 }

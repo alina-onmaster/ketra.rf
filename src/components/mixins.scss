@@ -30,28 +30,49 @@
     font-style: normal; 
 }
 
-@mixin h1 {
+@mixin title-text {
     font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
-    font-size: 32px;
-    line-height: 1;
+    font-size: 64px;
+    line-height: 1.15;
     font-weight: 600;
     font-style: normal;
+    text-transform: uppercase;
+}
 
-    @media (min-width: $md-width) {
-        font-size: 64px;
+@mixin h1 {
+    font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+    font-size: 38px;
+    line-height: 1.21;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+
+    @media (min-width: $lg-width) {
+        font-size: 54px;
+        line-height: 1.48;
     }
 }
 
-@mixin text-normal {
+@mixin text {
     font-family: "NotoSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.2;
-    font-weight: 400;    
+    font-size: 18px;
+    line-height: 1.38;
+    font-weight: 300;    
     font-style: normal;
 
-    @media (min-width: $md-width) {
-        font-size: 18px;
+    @media (min-width: $lg-width) {
+        font-size: 20px;
+        line-height: 1.35;
     }
+}
+
+@mixin link {
+    font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: uppercase;
 }
 
 
@@ -64,11 +85,6 @@
     padding-left: 20px;
     padding-right: 20px;
     max-width: 1200px;
-
-    @media (min-width: $md-width) {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
 }
 
 @mixin mp($list-margin: 0, $list-padding: 0) {

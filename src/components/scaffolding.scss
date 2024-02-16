@@ -14,9 +14,9 @@ html {
 
 body {
   min-width: $sm-width;
-  @include text-normal;
+  @include text;
   @include mp();
-  color: $text-color;
+  color: $text-black;
   background-color: $light;
 }
 

@@ -8,20 +8,21 @@
         min-height: 100px;
         padding: 100px 0 0;
         transition: $transition;
+
+        &--closed {
+            transform: translateY(-100%);
+        }
+    
+        &--opened {
+            transform: translateY(0);
+        }
         
     }
 
-    &--closed {
-        transform: translateY(-100%);
-    }
-
-    &--opened {
-        transform: translateY(0);
-    }
+    
 
     @media (min-width: $xl-width) {
-        flex-grow: 1;
-        
+        flex-grow: 1;        
     }
 
     &__wrap {

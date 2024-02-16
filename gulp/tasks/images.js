@@ -51,6 +51,13 @@ export const img = (done) => {
                 }))
             )
 
+            .pipe(responsive(config, {
+                errorOnEnlargement: false,
+                quality: 80,
+                withMetadata: false,
+                compressionLevel: 7,
+            }))
+
             .pipe(app.gulp.dest(app.path.build.images + '/' + block + '/'))
             .pipe(webp())
             .pipe(app.gulp.dest(app.path.build.images + '/' + block + '/'))
