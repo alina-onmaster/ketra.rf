@@ -20,4 +20,11 @@
     border-color: $main;
     color: $text-black;
   }
+
+  &--secondary {
+    background-color: transparent;
+    border-color: $main;
+    color: $light-gray;
+  }
+
 }

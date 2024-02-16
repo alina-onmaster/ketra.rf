@@ -1,3 +1,90 @@
 <section class="calc page__section">
+    <div class="page__wrap">
+        <h2 class="page__subtitle page__subtitle--light">Расчет стоимости</h2>
+        <form class="calc__form">
+            <div class="calc__column calc__column--data">
+                <p>Калькулятор расхода кирпича на строительство</p>
+                <fieldset id="brick-model">
+                    <legend>Выберите модель кирпича:</legend>
+                    <select name="pets" id="pet-select">
+                        <option value="">Солома 1 NF</option>
+                        <option value="dog">Солома 1 NF</option>
+                        <option value="cat">Солома 1 NF</option>
+                    </select>
+                </fieldset>
 
+                <fieldset id="wall-data">
+                    <legend>Введите размеры стен для расчета:</legend>
+                    <div class="form__field">
+                        <input id="wall-length" type="number" placeholder="Длина стен, м">
+                        <label for="wall-length" class="visually-hidden">Длина стен в метрах</label>
+                    </div>
+                    <div class="form__field">
+                        <input id="wall-height" type="number" placeholder="Высота стен, м">
+                        <label for="wall-height" class="visually-hidden">Высота стен в метрах</label>
+                    </div>
+                    <div class="form__field">
+                        <input id="wall-area" type="number" placeholder="Площадь стен, м">
+                        <label for="wall-area" class="visually-hidden">Площадь стен в метрах</label>
+                    </div>
+                    <div class="form__field">
+                        <input id="wall-thickness" type="number" placeholder="Толщина стен, м">
+                        <label for="wall-thickness" class="visually-hidden">Толщина стен в метрах</label>
+                    </div>                    
+                </fieldset>
+
+                <fieldset id="openings-data">
+                    <legend>Введите размеры проёмов (дверей, окон и т.п.):</legend>
+                    <div class="form__field">
+                        <input id="openings-length" type="number" placeholder="Ширина проема, м">
+                        <label for="openings-length" class="visually-hidden">Ширина проема в метрах</label>
+                    </div>
+                    <div class="form__field">
+                        <input id="openings-height" type="number" placeholder="Высота проема, м">
+                        <label for="openings-height" class="visually-hidden">Высота проема в метрах</label>
+                    </div>
+                    <div class="form__field">
+                        <input id="openings-area" type="number" placeholder="Площадь проёма, м">
+                        <label for="openings-area" class="visually-hidden">Площадь проёма в метрах</label>
+                    </div>
+                    <div class="form__field">
+                        <input id="openings-quantity" type="number" placeholder="Количество проёмов">
+                        <label for="openings-quantity" class="visually-hidden">Количество проёмов</label>
+                    </div>                    
+                </fieldset>
+
+                <button class="button button--secondary">Добавить проем</button>
+            </div>
+            <div class="calc__column calc__column--result">
+                <dl>
+                    <div>
+                        <dt>Стоимость расхода кирпича</dt>
+                        <dd>0,00</dd>
+                    </div>
+                    <div>
+                        <dt>Всего кирп.блоков</dt>
+                        <dd>0</dd>
+                    </div>
+                    <div>
+                        <dt>Всего поддонов</dt>
+                        <dd>0</dd>
+                    </div>
+                    <div>
+                        <dt>Количество раствора</dt>
+                        <dd>0</dd>
+                    </div>
+                    <div>
+                        <dt>Общая площадь стены:</dt>
+                        <dd>0</dd>
+                    </div>
+                    <div>
+                        <dt>Общий объем стены:</dt>
+                        <dd>0</dd>
+                    </div> 
+                </dl>
+                <a class="button button--main">Получить консультацию</a>
+            </div>
+        </form>
+        
+    </div>
 </section>

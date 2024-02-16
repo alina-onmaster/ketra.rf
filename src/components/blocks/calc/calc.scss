@@ -1,3 +1,178 @@
 .calc {
+    background-image: url("../calc/calc-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: $light-gray;
+
+    & .page__wrap {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    & .page__subtitle {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        &::before {
+            left: 0;
+        }
+    }
+
+    &__column {
+        padding-left: 20px;
+        padding-right: 20px;
+        
+        &--data {
+
+            @media (min-width: $xl-width) {
+                padding-right: 0;
+                width: 50%;
+                flex-grow: 1;
+            }
+
+            & .button--secondary {
+                display: flex;
+                width: 100%;
+
+                @media (min-width: $md-width) {
+                    width: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        &--result {
+            position: relative;
+            z-index: 1;
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $text-black;
+                backdrop-filter: blur(5px);
+                opacity: 0.5;
+                z-index: -1;
+            }
+
+            @media (min-width: $xl-width)  {
+                width: 400px;
+            }
+
+            & dl {
+                @include mp;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+
+                @media (min-width: $md-width) {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                @media (min-width: $lg-width) {
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+
+
+                & > div {
+
+                }
+            }
+
+            & .button--main {
+                display: flex;
+                width: 100%;
+
+                @media (min-width: $md-width) {
+                    width: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @media (min-width: $xl-width) {
+            flex-direction: row;
+            gap: 220px;
+        }
+
+        & p {
+            @include subtitle;
+            margin-bottom: 20px;
+        }
+
+        & fieldset {
+            @include mp();
+            border: none;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+
+            @media (min-width: $md-width) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media (min-width: $lg-width) {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+            &#brick-model {
+                width: 100%;
+                grid-template-columns: 1fr;
+            }
+
+            &#wall-data {
+                width: 100%
+            }
+
+            &#openings-data {
+                width: 100%
+            }
+        }
+
+        & legend {
+            @include text-14;
+            color: $dark-gray;
+            margin-bottom: 20px;
+            
+        }
+
+        & .form__field {
+
+        }
+
+        & input,
+        & select {
+            width: 100%;
+            @include text-14;
+            @include mp;
+            border: none;
+            border-bottom: 1px solid $light-gray;
+            background-color: transparent;
+            padding: 10px 12px;
+            
+        }
+
+        & input {
+            color: $light-gray;
+
+            &::placeholder {
+                color: $light-gray;
+            }
+        }
+    }
+
     
 }

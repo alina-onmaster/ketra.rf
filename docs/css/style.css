@@ -294,6 +294,12 @@ img {
   color: #2E2E2E;
 }
 
+.button--secondary {
+  background-color: transparent;
+  border-color: #FEC846;
+  color: #F1F1F1;
+}
+
 .page__section {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -314,6 +320,33 @@ img {
   font-weight: 600;
   font-style: normal;
   text-transform: uppercase;
+}
+
+.page__subtitle {
+  position: relative;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.page__subtitle::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: -20px;
+  width: 4px;
+  height: 26px;
+  background-color: #FEC846;
+}
+
+.page__subtitle--light {
+  color: #F1F1F1;
 }
 
 .main-header {
@@ -707,6 +740,149 @@ img {
   background-color: #FEC846;
 }
 
+.calc {
+  background-image: url("../img/calc/calc-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #F1F1F1;
+}
+
+.calc .page__wrap {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.calc .page__subtitle {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.calc .page__subtitle::before {
+  left: 0;
+}
+
+.calc__column {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.calc__column--data .button--secondary {
+  display: flex;
+  width: 100%;
+}
+
+.calc__column--result {
+  position: relative;
+  z-index: 1;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.calc__column--result::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2E2E2E;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.calc__column--result dl {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.calc__column--result .button--main {
+  display: flex;
+  width: 100%;
+}
+
+.calc__form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.calc__form p {
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 16px;
+  line-height: 1.37;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.calc__form fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.calc__form fieldset#brick-model {
+  width: 100%;
+  grid-template-columns: 1fr;
+}
+
+.calc__form fieldset#wall-data {
+  width: 100%;
+}
+
+.calc__form fieldset#openings-data {
+  width: 100%;
+}
+
+.calc__form legend {
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 14px;
+  line-height: 1.1;
+  font-weight: 300;
+  font-style: normal;
+  color: #4E4E4E;
+  margin-bottom: 20px;
+}
+
+.calc__form input,
+.calc__form select {
+  width: 100%;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 14px;
+  line-height: 1.1;
+  font-weight: 300;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #F1F1F1;
+  background-color: transparent;
+  padding: 10px 12px;
+}
+
+.calc__form input {
+  color: #F1F1F1;
+}
+
+.calc__form input::-moz-placeholder {
+  color: #F1F1F1;
+}
+
+.calc__form input::placeholder {
+  color: #F1F1F1;
+}
+
 @media (min-width: 768px) {
   .product__list {
     -moz-column-count: 2;
@@ -715,6 +891,24 @@ img {
 
   .product__list li:nth-child(4n) {
     border-bottom: 1px solid;
+  }
+
+  .calc__column--data .button--secondary {
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .calc__column--result dl {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .calc__column--result .button--main {
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .calc__form fieldset {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -758,6 +952,14 @@ img {
   .product__list {
     font-size: 20px;
     line-height: 1.35;
+  }
+
+  .calc__column--result dl {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .calc__form fieldset {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -904,6 +1106,21 @@ img {
   .product__link-more {
     grid-area: button;
     align-self: end;
+  }
+
+  .calc__column--data {
+    padding-right: 0;
+    width: 50%;
+    flex-grow: 1;
+  }
+
+  .calc__column--result {
+    width: 400px;
+  }
+
+  .calc__form {
+    flex-direction: row;
+    gap: 220px;
   }
 }
 

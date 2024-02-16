@@ -15,5 +15,26 @@
 
   &__title {
     @include h1;
+  }
+
+  &__subtitle {
+    position: relative;
+    @include h2;
+    @include mp;
+    margin-bottom: 30px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: -20px;
+      width: 4px;
+      height: 26px;
+      background-color: $main;
+    }  
+
+    &--light {
+      color: $light-gray;
+    }
   }  
 }
