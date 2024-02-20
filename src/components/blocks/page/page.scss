@@ -36,5 +36,23 @@
     &--light {
       color: $light-gray;
     }
-  }  
+  }
+
+  &__link-more {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    @include link;
+    color: $urobilin;
+    gap: 0.6em;
+
+    & .icon {
+      width: 14px;
+      height: 9px;
+
+      & use.icon__symbol {
+        fill: $urobilin;
+    }
+    }
+  }
 }

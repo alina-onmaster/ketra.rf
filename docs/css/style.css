@@ -349,6 +349,29 @@ img {
   color: #F1F1F1;
 }
 
+.page__link-more {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  color: #ECB226;
+  gap: 0.6em;
+}
+
+.page__link-more .icon {
+  width: 14px;
+  height: 9px;
+}
+
+.page__link-more .icon use.icon__symbol {
+  fill: #ECB226;
+}
+
 .main-header {
   position: fixed;
   width: 100%;
@@ -741,11 +764,15 @@ img {
 }
 
 .calc {
-  background-image: url("../img/calc/calc-bg.jpg");
+  background-image: url("../img/calc/calc-bg--mobile.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   color: #F1F1F1;
+}
+
+.calc.page__section {
+  padding-bottom: 0;
 }
 
 .calc .page__wrap {
@@ -767,9 +794,14 @@ img {
   padding-right: 20px;
 }
 
-.calc__column--data .button--secondary {
+.calc__column .button {
   display: flex;
   width: 100%;
+  margin-top: 30px;
+}
+
+.calc__column--data {
+  padding-bottom: 30px;
 }
 
 .calc__column--result {
@@ -801,15 +833,82 @@ img {
   gap: 20px;
 }
 
-.calc__column--result .button--main {
+.calc__column--result dl > .result__item {
   display: flex;
-  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 23px;
+}
+
+.calc__column--result dl > .result__item--total {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 55px;
+}
+
+.calc__column--result dl > .result__item--total::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  background-color: #4E4E4E;
+  transform: translateX(-50%);
+}
+
+.calc__column--result dl > .result__item--total dd {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 38px;
+  line-height: 1.21;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 45px;
+}
+
+.calc__column--result dl > .result__item--total dd::before {
+  content: "руб.";
+  position: absolute;
+  top: 4px;
+  left: 0;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 16px;
+  line-height: 1.37;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.calc__column--result dt {
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 14px;
+  line-height: 1.1;
+  font-weight: 300;
+  font-style: normal;
+  color: #4E4E4E;
+}
+
+.calc__column--result dd {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  color: #F1F1F1;
 }
 
 .calc__form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
 }
 
 .calc__form p {
@@ -842,6 +941,7 @@ img {
 }
 
 .calc__form fieldset#openings-data {
+  margin-bottom: 0;
   width: 100%;
 }
 
@@ -863,6 +963,7 @@ img {
   line-height: 1.1;
   font-weight: 300;
   font-style: normal;
+  color: #F1F1F1;
   margin: 0;
   padding: 0;
   border: none;
@@ -872,7 +973,8 @@ img {
 }
 
 .calc__form input {
-  color: #F1F1F1;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .calc__form input::-moz-placeholder {
@@ -881,6 +983,194 @@ img {
 
 .calc__form input::placeholder {
   color: #F1F1F1;
+}
+
+.calc__form input[type=number]::-webkit-outer-spin-button,
+.calc__form input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.calc__form input[type=number],
+.calc__form input[type=number]:hover,
+.calc__form input[type=number]:focus {
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: textfield;
+}
+
+.statistics {
+  position: relative;
+  background-color: #000000;
+  color: #F1F1F1;
+  background-image: url("../img/statistics/statistics-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top 0px left -50px;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.statistics::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/page/noize.png");
+  background-repeat: repeat;
+  opacity: 0.5;
+}
+
+.statistics .page__wrap {
+  position: relative;
+}
+
+.statistics__list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-bottom: 40px;
+}
+
+.statistics__list::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  background-color: #4E4E4E;
+  transform: translateX(-50%);
+}
+
+.statistics__list li {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 38px;
+  line-height: 1.21;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.statistics__list li:nth-child(1) span {
+  width: 115px;
+}
+
+.statistics__list li:nth-child(2) span {
+  width: 165px;
+}
+
+.statistics__list li:nth-child(3) span {
+  width: 130px;
+}
+
+.statistics__list li:nth-child(4) span {
+  width: 125px;
+}
+
+.statistics__list li span {
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+}
+
+.statistics__text {
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  padding-top: 30px;
+}
+
+.news .page__wrap {
+  position: relative;
+}
+
+.news__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.news__item {
+  position: relative;
+}
+
+.news__item::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #4E4E4E;
+}
+
+.news__item a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+.news__item time {
+  margin: 0;
+  padding: 0;
+  font-family: "NotoSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 300;
+  font-style: normal;
+  color: #4E4E4E;
+  margin-bottom: 10px;
+}
+
+.news__item h3 {
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.news__item p {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  color: #ECB226;
+  display: none;
+}
+
+.news .page__link-more {
+  margin-top: 30px;
 }
 
 @media (min-width: 768px) {
@@ -893,18 +1183,9 @@ img {
     border-bottom: 1px solid;
   }
 
-  .calc__column--data .button--secondary {
+  .calc__column .button {
     width: auto;
-    margin: 0 auto;
-  }
-
-  .calc__column--result dl {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .calc__column--result .button--main {
-    width: auto;
-    margin: 0 auto;
+    margin: 30px auto 0;
   }
 
   .calc__form fieldset {
@@ -958,8 +1239,84 @@ img {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
+  .calc__column--result dl > .result__item--total dd {
+    font-size: 54px;
+    line-height: 1.48;
+  }
+
   .calc__form fieldset {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .statistics .page__wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "title text" "list list";
+    -moz-column-gap: 100px;
+         column-gap: 100px;
+    row-gap: 100px;
+  }
+
+  .statistics .page__subtitle {
+    grid-area: title;
+  }
+
+  .statistics__list {
+    padding-bottom: 0;
+    grid-area: list;
+  }
+
+  .statistics__list::before {
+    display: none;
+  }
+
+  .statistics__list li {
+    font-size: 54px;
+    line-height: 1.48;
+  }
+
+  .statistics__list li span {
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
+  .statistics__text {
+    grid-area: text;
+    padding-top: 0;
+  }
+
+  .news .page__wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "title link-more" "list list";
+    -moz-column-gap: 100px;
+         column-gap: 100px;
+    row-gap: 60px;
+  }
+
+  .news .page__subtitle {
+    margin-bottom: 0;
+    grid-area: title;
+  }
+
+  .news__list {
+    grid-area: list;
+  }
+
+  .news__item time {
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
+  .news__item h3 {
+    font-size: 24px;
+  }
+
+  .news .page__link-more {
+    justify-self: end;
+    align-self: center;
+    margin-top: 0;
+    grid-area: link-more;
   }
 }
 
@@ -1108,6 +1465,18 @@ img {
     align-self: end;
   }
 
+  .calc {
+    background-image: url("../img/calc/calc-bg.jpg");
+  }
+
+  .calc.page__section {
+    padding-bottom: 70px;
+  }
+
+  .calc__column .button--secondary {
+    margin: 40px auto 0 0;
+  }
+
   .calc__column--data {
     padding-right: 0;
     width: 50%;
@@ -1118,29 +1487,328 @@ img {
     width: 400px;
   }
 
+  .calc__column--result dl {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .calc__column--result dl > .result__item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .calc__column--result dl > .result__item--total {
+    gap: 20px;
+    padding-bottom: 15px;
+  }
+
+  .calc__column--result dl > .result__item--total::before {
+    width: calc(100% + 40px);
+  }
+
+  .calc__column--result dl > .result__item--total dd {
+    font-size: 48px;
+  }
+
   .calc__form {
     flex-direction: row;
-    gap: 220px;
+    gap: 190px;
   }
-}
 
-@media (min-width: 1200px){
+  .calc__form fieldset {
+    margin-bottom: 40px;
+  }
 
-  .product__title {
+  .statistics.page__section {
+    padding-bottom: 0;
+  }
+
+  .statistics .page__wrap {
+    grid-template-columns: 1fr 560px;
+    -moz-column-gap: 200px;
+         column-gap: 200px;
+    row-gap: 185px;
+  }
+
+  .statistics .page__wrap::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 1px;
+    height: calc(100% + 60px);
+    background-color: #4E4E4E;
+  }
+
+  .statistics__list {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .statistics__list::before {
+    display: block;
+    bottom: unset;
+    top: 0;
+    left: -20px;
+    transform: unset;
+    width: calc(100% + 40px);
+  }
+
+  .statistics__list li {
+    position: relative;
+    width: 20%;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 50px 13px;
+    text-align: center;
+  }
+
+  .statistics__list li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #4E4E4E;
+  }
+
+  .statistics__list li:nth-child(1) span {
+    width: auto;
+  }
+
+  .statistics__list li:nth-child(2) span {
+    width: auto;
+  }
+
+  .statistics__list li:nth-child(3) span {
+    width: auto;
+  }
+
+  .statistics__list li:nth-child(4)::before {
+    right: -20px;
+  }
+
+  .statistics__list li:nth-child(4) span {
+    width: auto;
+  }
+
+  .statistics__list li span {
+    font-size: 18px;
+  }
+
+  .news.page__section {
+    padding-bottom: 0;
+  }
+
+  .news .page__wrap {
+    grid-template-columns: 1fr 560px;
+    -moz-column-gap: 200px;
+         column-gap: 200px;
+  }
+
+  .news .page__wrap::before,
+  .news .page__wrap::after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    width: 1px;
+    height: calc(100% + 60px);
+    background-color: #4E4E4E;
+  }
+
+  .news .page__wrap::before {
+    left: 0;
+  }
+
+  .news .page__wrap::after {
+    right: 0;
+  }
+
+  .news__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
+    gap: 0;
+  }
+
+  .news__list::before,
+  .news__list::after {
+    content: "";
+    position: absolute;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: 1px;
+    background-color: #4E4E4E;
+  }
+
+  .news__list::before {
+    top: 0;
+  }
+
+  .news__list::after {
+    bottom: 0;
+  }
+
+  .news__item:nth-child(3)::before {
+    display: none;
+  }
+
+  .news__item::before {
+    bottom: unset;
+    left: unset;
+    width: 1px;
+    height: 100%;
+    right: 0;
+    top: 0;
+  }
+
+  .news__item a {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    justify-content: space-between;
+  }
+
+  .news__item p {
+    margin-top: 100px;
+    display: block;
+    align-self: flex-end;
+  }
+
+  .product .page__wrap > .page__subtitle {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
   }
 
-  .product__text {
+  .product .page__wrap > .statistics__list {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .product .page__wrap > .statistics__text {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
   }
 
-  .product__list {
+  .product .page__wrap > .page__subtitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .product .page__wrap > .news__list {
     -ms-grid-row: 2;
     -ms-grid-row-span: 2;
     -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+}
+
+@media (min-width: 1024px){
+
+  .statistics .page__subtitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .news .page__wrap > .page__subtitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .statistics__list {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .news .page__wrap > .statistics__list {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .statistics__text {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+
+  .news .page__subtitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .news .page__wrap > .page__subtitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .news__list {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .news .page__wrap > .news__list {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .news .page__link-more {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+
+  .product__title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .news .page__wrap > .product__title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .product__text {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+
+  .product__list {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .news .page__wrap > .product__list {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+}
+
+@media (min-width: 1200px){
+
+  .product .page__wrap > .product__title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .product .page__wrap > .product__text {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+
+  .product .page__wrap > .product__list {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
   }
 
   .product__link-more {
