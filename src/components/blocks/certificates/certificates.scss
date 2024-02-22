@@ -1,0 +1,118 @@
+.certificates {
+    @media (min-width: $xl-width) {
+        padding-bottom: 0;
+    }
+    & .page__wrap {
+        position: relative;
+
+        @media (min-width: $xl-width) {
+            position: relative;           
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: -60px;                
+                width: 1px;
+                height: calc(100% + 60px);
+                background-color: $dark-gray;
+            }
+
+            &::before {
+                left: 0;
+            }
+
+            &::after {
+                right: 0;
+            }
+        }
+    }
+
+    &__wrap-hidden {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &__container {
+        @include container;
+
+        @media (min-width: $xl-width) {
+            padding-left: 0;
+            padding-right: 0;            
+        }
+    }
+
+    &__list {
+        width: 100%;
+        overflow: hidden;
+        @include list;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        @media (min-width: $lg-width) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @media (min-width: $xl-width) {
+            width: calc(1200px / 3 * 5);            
+            display: flex;
+            gap: unset;
+        }
+    }
+
+    &__item {
+        position: relative;
+        @media (min-width: $xl-width) {
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 100%;
+                background-color: $dark-gray;
+                top: 0;
+                z-index: 1;
+            }
+
+            &::before {
+                left: -1px;
+                display: none;
+            }
+
+            &::after {
+                right: 0;
+                display: none;
+            }
+
+            &:last-child {
+
+                &::after {
+                    right: 0;
+                    display: block;
+                }
+            }
+        }
+        
+        & a {
+            display: block;
+        }
+        
+        & img {
+            box-sizing: border-box;
+            aspect-ratio: 210 / 297;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid $dark-gray;
+
+            @media (min-width: $xl-width) {
+                display: block;
+                width: 400px;
+                border-right: none;               
+                
+            }
+        }
+    }
+
+}

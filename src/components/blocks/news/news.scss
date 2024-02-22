@@ -1,9 +1,29 @@
 .news {
-    &.page__section {
+    &--section {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $dark-gray;
+
+            @media (min-width: $lg-width) {
+                display: none;
+            }
+        }
+
+    }
+    &.page__section {        
+
         @media (min-width: $xl-width) {
             padding-bottom: 0;
         }
     }
+
     & .page__wrap {
         position: relative;
 
@@ -86,6 +106,7 @@
 
     &__item {
         position: relative;
+        overflow: hidden;
 
         @media (min-width: $xl-width) {
 
@@ -144,17 +165,51 @@
         }
 
         & p {
-            @include mp;
-            display: inline-flex;
-            align-items: center;
-            @include link;
-            color: $urobilin;
             display: none;
+            
+            
 
             @media (min-width: $xl-width) {
+                position: relative;
+                @include mp;
+                display: inline-flex;
+                align-items: center;
+                @include link;
+                color: $urobilin;
                 margin-top: 100px;
                 display: block;
                 align-self: flex-end;
+                padding: 5px 30px;
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $text-gray;
+                    z-index: -1;
+                    transition: $transition;
+                }
+
+                &::before {
+                    top: 0;
+                    transform: translateX(500px);
+                }
+
+                &::after {
+                    top: 42px;
+                    transform: translateX(-500px);
+                }
+
+                &:hover {
+                    &::before,
+                    &::after {
+                        transform: translateX(0);
+                }
+                    
+                }
             }
         }
     }
