@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
     <meta name="robots" content="noindex, nofollow"><!--Убрать строку при интеграции-->
 </head>
@@ -12,6 +13,19 @@
 <body>
     <div style="display:none">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <symbol viewBox="0 0 15 15" id="icon-arrow-left">
+                <path fill="#000" d="M1.5 7.5l-.354-.354-.353.354.353.354L1.5 7.5zm.354.354l4-4-.708-.708-4 4 .708.708zm-.708 0l4 4 .708-.708-4-4-.708.708zM1.5 8H14V7H1.5v1z" class="icon__color-element" opacity=".5"></path>
+            </symbol>
+            <symbol viewBox="0 0 15 15" id="icon-arrow-right">
+                <g clip-path="url(#bclip0_487_136)">
+                    <path fill="#000" d="M13.5 7.5l.354.354.353-.354-.353-.354-.354.354zm-.354-.354l-4 4 .708.708 4-4-.708-.708zm.708 0l-4-4-.708.708 4 4 .708-.708zM13.5 7H1v1h12.5V7z" class="icon__color-element"></path>
+                </g>
+                <defs>
+                    <clipPath id="bclip0_487_136">
+                        <path fill="#fff" d="M0 0h15v15H0z" transform="rotate(90 7.5 7.5)"></path>
+                    </clipPath>
+                </defs>
+            </symbol>
             <symbol viewBox="0 0 14 9" id="icon-arrow-up-outline">
                 <path fill="#000" d="M12.5 4.5l.354.354.353-.354-.353-.354-.354.354zm-.354-.354l-4 4 .708.708 4-4-.708-.708zm.708 0l-4-4-.708.708 4 4 .708-.708zM12.5 4H0v1h12.5V4z" class="icon__color-element"></path>
             </symbol>
@@ -22,16 +36,22 @@
                 <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5l-9 9M4.5 4.5l9 9" class="icon__color-element"></path>
             </symbol>
             <symbol viewBox="0 0 36 58" id="icon-logo">
-                <path fill="url(#dpattern0)" d="M0 0h36v58H0z"></path>
+                <path fill="url(#fpattern0)" d="M0 0h36v58H0z"></path>
                 <defs>
-                    <pattern id="dpattern0" width="1" height="1" patternContentUnits="objectBoundingBox">
-                        <use transform="matrix(.00226 0 0 .00142 .063 0)" xlink:href="#image0_399_64" href="#dimage0_399_64"></use>
+                    <pattern id="fpattern0" width="1" height="1" patternContentUnits="objectBoundingBox">
+                        <use transform="matrix(.00226 0 0 .00142 .063 0)" xlink:href="#image0_399_64" href="#fimage0_399_64"></use>
                     </pattern>
-                    <image id="dimage0_399_64" width="371" height="706" xlink:href="data:image/png;base64,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"></image>
+                    <image id="fimage0_399_64" width="371" height="706" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXMAAALCCAMAAAAbGsPtAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAFRQTFRF////AAAA/Pv6/Pr5/Pz5/Pz6+/r6/Pr6/Pv5/Pv7/fz7/fv6+/v7+/r5/fv5+/v6+/v5/Pz7/fz6+/n5/fv7+vr5+/r7+/r4/Pn6/Pr4+/z7/Pv4w2W1fAAAABx0Uk5T/wD///////////////////////////////////Tvm9cAAAlxSURBVHic7d1tW9pMGoBhhUcEqYvt87Lb3f//P7etrcyEJHNPxFuh53n0k00mySWEkAS8uQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgDd2SzbN82meT/N8mufTPJ/m+TTPp3k+zfNpnk/zfJrn0zyf5vk0z6d5Ps3zaZ5P83ya59M8n+b5NM+neT7N82meT/N8mufTPJ/m+TTPp3k+zfNpnk/zfJrn0zyf5vk0z6d5Ps3zaZ5P83ya59M8n+b5NM+neT7N82meT/N8mufTPJ/m+TTPp3k+zfNpnk/zfJrn0zyf5vluVi/WzYlXldBEQX+cDHO3aJzJFWvMsl5vNvdd4eaW0Jiyp/m2GHZ33uZ35xnmh7F27bm+bdD2NdXLOI2SHc2rVXyYXL9Fnd6/+bN1+8k+br2thpmddmHz/fTzZ1Gnj9J8tfrUqDChSv64nZ023Hy9Lgbdr/81OeGiTh+n+epwmO0Q2+rZaZc1nxtzUacP1HxZ9MEYj3PTBptvNuG1WtTpIzX/VmJ+3zDiMBxibuJg83LMx9lf4jU0XzUP94Z5hs23TzNTx5pXQ/4Ozdfz2zj0uB4O8Orm2+pVubH8ctK7Q9DpKq7GJyxH/xwdq16psdlOqze2cnr49vyR5tsv5SOg55DyW4CY02HuRqcbNI8OVq/U6aiH9ckDteeF9I+R5jMvCYHm3+Zftaca3bxXvp0e0fOM61qp9XZfN+94Ha1Wqr1y7eZ/Rof6aVmUqIWjR2YbRI8Pf/okWc3uD5rN65G+tNfgYpvf3u4fyunCL6MjxWeX09m8cw2iax33ps1v/yom2y5ovl4XRzCT0zeaHz6Xaxs6AXTJzW+fygmDe/Tidf3b63FgOa3m5TrENvKim1fRT980tGapljR5iD7ffFu+5b+LrcNlN7+9P04Ye5wXD+27aklPf0/MMdu8vlYTWoOLb14+ykJ79Mfj9IdqSZvNxBxzzevk0WPt62keu1p3PDh/3g8cq03NPtO82pd/CW/hhTcvN3vqgTox9GE4/8Qc082rA/39PrL4wTpcfPPIcdr2ZOBda1GTzetTZfv4dcJLb14ebrcHLt+D/vzRrjXAVPNixs4rJ1fUPLCEYuJf/YonyviRz1Tz+HWhmbW4+Obto8WRcQ+tZY03r86Z7vrODv6uzXcvP9sdz32PHm1ONC/XcfI4s7nKF9+8OW7x2Dw+Mou3VaM7iNHm5RrGTrKMr/JFNm/ujgvb8WGPL4aje+Wx5oPzwcHN+uXSmxdTNp/gx4O73a74cXFi8J+RuUaaV8Fj7wsm1vkimx/fR941Dx1eJt1VO+DdZnZpp82rffmCbL9p8+rnm5dd+tju6aR5XXxBtXLuqWvQ/aOOjf4ms63jC1gfL+YN36YfRxm5Rqf5QE/z45TD5kXVZvPixORztO7deej2ne5BR0d/i9nKI5HW9YKJo5bvZk/aFM2/H2AWh5bPi+2/X/Kim1eX/lvNZwZd7WeWd1PNN5Knez/QLt53X9r06OefrbpRpfVwKw42Ts+6np5uPKqaj94bE7wq+KKZvPum16nRzz7bYPsbY842Lx7nJ7+7m1VTx6YNN2/Muv8lYmL08872NLgzqPXQ2Bz32fN3pZ6cO9H8l6fBa1nrnEfxvuf8zV9xjmtM12Czo59xpU7c/xkfcv3vkf8euZjxS6B559v/1mhdg82OfsaVWrDNx2lHnxHdzQd3ZHcdu8xvy6IPSE2MfraVOvG5uZrlLfnj1xeKXdXglzLWfHf4u77Ru+e+4Mbmveqg5TbtcT51O1DPekxu9VjzzelaLty8jtnedvSu4JEL7oH12E1NMtb8+blS3429bPPic73x6D3Jv0Sei4H1uJ+a5LT5yy+5/D3t4q+jF988kvxT0WvqWbEpXkWrSxfB5h2fUrn45pHxeptXn2g/aV48oJ+Ka0xfwpdFL7l5dCvrjygH/FM+ZofNy4WWzVf3/1mwecFZOrxd8/vv/8433FAx96B5vS+7znuhx66jfF0333dODffq5nNjB98ZffjmZ1ir/uTlmce6+ezgjc+cj83y+q070+jnXamxzyY2PGy/vszeaP6p2KVvY+8hr795f/F6uTdjPyxU5wBCB4yav7Z5vYBIdM07mvtMblD1ZvEtmtfRA7v0a2+++VQ0H72CXPx3ecr35b1o4Hstyl9r4Lvwrr357th83zyseCyav1xvCzQ/VB9Ab67TtTdvfoyiueRA87uy+UPzqtW1N+96AC5tXp1K31U3WgcXckbv3/w4UOgDnPvTO7pCzbvOu1x586+9IxV79J97/9j3zt2Vr6ON143rbr5goGKO58TB71csF9U4dtF84OQFINr8EF7Y79I8/BXSq+GdLouaz+5dNB/OUjT/cdAX/o7iqvncWd1ywuZtIt3euXlxHTR+v3Kx7OXNZ9e7nOwQ/lLL6K1i79v8MP+BuAnFTdM/vhIm/p3z0ejVZNHvbj288ZW/MzU/z9I7vue/Ol6c3qWvllm2+lHv27wo9/1tVEfz/8YaXXHz4u1N8AvhnhV33O7/19W8ulf3YfJl+4qbHw9APnd93rL4arqH9deP8veJLqJ5cQok/lVZP1Qf4dC8w/Lm9fK7moeuGV1v8/L6UOes1cd3+5pHol9t8/Iexd4vtak+0d7ZvD6rOzrHtTYvvyCkf4zyqzJvdi9CAx1WxQzjfxhqt0hw3VfH5XdteP+Shj7dH5fc//cLipn9Lct3oHk+zfNpnk/zfJrn0zyf5vk0z6d5Ps3zaZ5P83ya59M8n+b5NM+neT7N82meT/N8mufTPJ/m+TTPp3k+zfNpnk/zfJrn0zyf5vk0z6d5Ps3zaZ5P83ya59M8n+b5NM+neT7N82meT/N8mufTPJ/m+TTPp3k+zfNpnk/zfJrn0zyf5vk0z6d5Ps3zaZ5P83ya59M8n+b5NM+neT7N890AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBbuyWb5vk0z6d5Ps3zaZ5P83ya59M8n+b5NM+neT7N82meT/N8mufTPJ/m+TTPp3k+zfNpnk/zfJrn0zyf5vk0z/fet+4BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHD9/g9lpqDMl6wZ8gAAAABJRU5ErkJggg=="></image>
                 </defs>
             </symbol>
             <symbol viewBox="0 0 24 24" id="icon-phone">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" class="icon__color-element"></path>
+            </symbol>
+            <symbol viewBox="0 0 18 12" id="icon-vk">
+                <path fill="#000" fill-rule="evenodd" d="M16.022 8.068s1.455 1.437 1.815 2.102c.007.01.013.02.016.032.147.246.183.438.111.58-.121.235-.533.353-.672.363H14.72c-.18 0-.552-.047-1.006-.36-.346-.242-.69-.64-1.025-1.03-.498-.58-.93-1.081-1.366-1.081a.493.493 0 00-.162.027c-.33.104-.75.575-.75 1.829 0 .392-.31.615-.526.615H8.707c-.402 0-2.492-.14-4.345-2.094C2.092 6.659.052 1.86.032 1.817c-.126-.31.14-.48.428-.48h2.597c.349 0 .462.211.541.4.092.217.432 1.085.99 2.06.904 1.585 1.46 2.23 1.903 2.23a.474.474 0 00.237-.062c.58-.319.472-2.389.445-2.816 0-.082 0-.924-.298-1.33-.212-.292-.574-.406-.793-.447a.94.94 0 01.342-.29C6.821.882 7.538.853 8.25.853h.395c.773.011.972.06 1.253.132.566.135.576.501.527 1.749-.015.356-.03.757-.03 1.23 0 .1-.004.213-.004.327-.018.64-.04 1.361.412 1.657a.369.369 0 00.195.056c.157 0 .626 0 1.897-2.182.558-.964.99-2.1 1.02-2.186.025-.048.1-.182.193-.236a.431.431 0 01.212-.05h3.055c.334 0 .56.05.604.176.073.204-.015.828-1.41 2.714-.235.314-.44.586-.622.824-1.264 1.66-1.264 1.743.075 3.003z" class="icon__color-element" clip-rule="evenodd"></path>
+            </symbol>
+            <symbol viewBox="0 0 16 12" id="icon-youtube">
+                <path fill="#000" d="M8.183 0c.4.002 1.402.012 2.467.055l.378.016c1.072.05 2.143.138 2.675.285.709.2 1.265.78 1.454 1.517.3 1.17.337 3.451.341 4.004l.001.114v.13c-.005.553-.043 2.835-.343 4.005-.19.739-.747 1.32-1.453 1.516-.532.148-1.603.235-2.675.285l-.378.018a75.05 75.05 0 01-2.467.053L8.007 12h-.191c-.848-.005-4.392-.043-5.52-.357a2.11 2.11 0 01-1.454-1.516C.542 8.956.504 6.674.5 6.122v-.245c.004-.553.042-2.835.342-4.004.19-.739.748-1.32 1.454-1.516C3.424.043 6.97.005 7.816 0h.367zM6.499 3.375v5.25L11 6 6.5 3.375z" class="icon__color-element"></path>
             </symbol>
         </svg>
     </div>
@@ -78,9 +98,65 @@
         </div>
     </header>
     <main>
-        <section class="main-slider">
-            <ul class="main-slider__list">
-                <li class="main-slider__item slide">
+        <section class="main-slider swiper">
+            <ul class="main-slider__list swiper-wrapper">
+                <li class="main-slider__item slide swiper-slide">
+                    <picture>
+                        <source type="image/webp" media="(min-width: 1025px)" srcset="
+                    ./img/main-slider/slide1-2000.webp,
+                    ./img/main-slider/slide1-2000@2x.webp 2x,
+                    ./img/main-slider/slide1-2000@3x.webp 3x">
+                        <source type="image/webp" srcset="
+                    ./img/main-slider/slide1-1024@1x.webp 1x,
+                    ./img/main-slider/slide1-1024@2x.webp 2x,
+                    ./img/main-slider/slide1-1024@3x.webp 3x">
+                        <source type="image/jpeg" media="(min-width: 1025px)" srcset="
+                    ./img/main-slider/slide1-2000.jpg 1x,
+                    ./img/main-slider/slide1-2000@2x.jpg 2x,
+                    ./img/main-slider/slide1-2000@3x.jpg 3x">
+                        <source type="image/jpeg" srcset="
+                    ./img/main-slider/slide1-1024@1x.jpg 1x,
+                    ./img/main-slider/slide1-1024@2x.jpg 2x,
+                    ./img/main-slider/slide1-1024@3x.jpg 3x">
+                        <img class="slide__img" src="./img/main-slider/slide1.jpg" alt="Кирпичи по новейшим технологиям">
+                    </picture>
+                    <div class="slide__wrap">
+                        <h2 class="slide__title">кирпичи по новейшим технологиям</h2>
+                        <div class="slide__text">
+                            <p>Еще крепче, еще легче </p>
+                        </div>
+                        <a class="button button--main slide__button">Перейти в каталог</a>
+                    </div>
+                </li>
+                <li class="main-slider__item slide swiper-slide">
+                    <picture>
+                        <source type="image/webp" media="(min-width: 1025px)" srcset="
+                    ./img/main-slider/slide1-2000.webp,
+                    ./img/main-slider/slide1-2000@2x.webp 2x,
+                    ./img/main-slider/slide1-2000@3x.webp 3x">
+                        <source type="image/webp" srcset="
+                    ./img/main-slider/slide1-1024@1x.webp 1x,
+                    ./img/main-slider/slide1-1024@2x.webp 2x,
+                    ./img/main-slider/slide1-1024@3x.webp 3x">
+                        <source type="image/jpeg" media="(min-width: 1025px)" srcset="
+                    ./img/main-slider/slide1-2000.jpg 1x,
+                    ./img/main-slider/slide1-2000@2x.jpg 2x,
+                    ./img/main-slider/slide1-2000@3x.jpg 3x">
+                        <source type="image/jpeg" srcset="
+                    ./img/main-slider/slide1-1024@1x.jpg 1x,
+                    ./img/main-slider/slide1-1024@2x.jpg 2x,
+                    ./img/main-slider/slide1-1024@3x.jpg 3x">
+                        <img class="slide__img" src="./img/main-slider/slide1.jpg" alt="Кирпичи по новейшим технологиям">
+                    </picture>
+                    <div class="slide__wrap">
+                        <h2 class="slide__title">кирпичи по новейшим технологиям</h2>
+                        <div class="slide__text">
+                            <p>Еще крепче, еще легче </p>
+                        </div>
+                        <a class="button button--main slide__button">Перейти в каталог</a>
+                    </div>
+                </li>
+                <li class="main-slider__item slide swiper-slide">
                     <picture>
                         <source type="image/webp" media="(min-width: 1025px)" srcset="
                     ./img/main-slider/slide1-2000.webp,
@@ -109,6 +185,10 @@
                     </div>
                 </li>
             </ul>
+            <div class="main-slider__pagination-wrap">
+                <div class="swiper-pagination"></div>
+            </div>
+
         </section>
         <section class="product page__section">
             <div class="page__wrap">
@@ -218,6 +298,230 @@
 
             </div>
         </section>
+        <section class="geography page__section">
+            <div class="page__wrap">
+                <h2 class="page__subtitle">География проектов</h2>
+
+                <!--Блок .geography__select-region работает и показывается при разрешении до 1199px включительно, на экнанах шире вместо него показывается блок geography__region-list-wrap-->
+                <form class="geography__select-region">
+                    <label for="region" class="visually-hidden">Выберите регион:</label>
+                    <select id="region">
+                        <option value="privolzhskij-fo" selected="">Приволжский федеральный округ</option>
+                        <option value="uralskij-fo">Уральский федеральный округ</option>
+                        <option value="centralnyj-fo">Центральный федеральный округ</option>
+                        <option value="severozapadnyj-fo">Северо-западный федеральный округ</option>
+                        <option value="krasnodarskij-kraj">Краснодарский край</option>
+                    </select>
+                    <!--Список городов в этом блоке меняется в зависимости от выбранного региона-->
+                    <p class="city" id="privolzhskij-fo" style="display: block;">Казань, Нижний Новгород, Йошкар-Ола, Чебоксары, Ульяновск</p>
+                    <p class="city" id="uralskij-fo">Екатеринбург</p>
+                    <p class="city" id="centralnyj-fo">Москва и Московская область</p>
+                    <p class="city" id="severozapadnyj-fo">Санкт-Петербург</p>
+                    <p class="city" id="krasnodarskij-kraj">Краснодар</p>
+                </form>
+                <div class="geography__region-list-wrap regions">
+                    <div class="regions__swiper swiper">
+                        <ul class="regions__list swiper-wrapper">
+                            <li id="privolzhskij-fo" class="regions__item swiper-slide">
+                                <h3 class="title">Приволжский федеральный округ</h3>
+                                <p>Казань, Нижний Новгород, Йошкар-Ола, Чебоксары, Ульяновск</p>
+                                <a href="#">Узнать больше</a>
+                            </li>
+                            <li id="uralskij-fo" class="regions__item swiper-slide">
+                                <h3 class="title">Уральский федеральный округ</h3>
+                                <p>Екатеринбург</p>
+                                <a href="#">Узнать больше</a>
+                            </li>
+                            <li id="centralnyj-fo" class="regions__item swiper-slide">
+                                <h3 class="title">Центральный федеральный округ</h3>
+                                <p>Москва и Московская область</p>
+                                <a href="#">Узнать больше</a>
+                            </li>
+                            <li id="severozapadnyj-fo" class="regions__item swiper-slide">
+                                <h3 class="title">Северо-западный федеральный округ</h3>
+                                <p>Санкт-Петербург</p>
+                                <a href="#">Узнать больше</a>
+                            </li>
+                            <li id="krasnodarskij-kraj" class="regions__item swiper-slide">
+                                <h3 class="title">Краснодарский край</h3>
+                                <p>Краснодар</p>
+                                <a href="#">Узнать больше</a>
+                            </li>
+                        </ul>
+                        <div class="swiper-button-prev">
+                            <svg class="icon" width="15px" height="15px" fill="none">
+                                <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                            </svg>
+                        </div>
+                        <div class="swiper-button-next">
+                            <svg class="icon" width="15px" height="15px" fill="none">
+                                <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="geography__map-wrap">
+                    <div class="geography__map">
+                        <picture>
+                            <source type="image/webp" srcset="
+                        ./img/geography/privolzhskij-882@1x.webp 1x,
+                        ./img/geography/privolzhskij-882@2x.webp 2x,
+                        ./img/geography/privolzhskij-882@3x.webp 3x">
+                            <source type="image/png" srcset="
+                        ./img/geography/privolzhskij-882@1x.png 1x,
+                        ./img/geography/privolzhskij-882@2x.png 2x,
+                        ./img/geography/privolzhskij-882@3x.png 3x">
+                            <img src="./img/geography/privolzhskij.png" alt="">
+                        </picture>
+                    </div>
+                    <p>Выберите мышкой регион, чтобы посмотреть проекты</p>
+                </div>
+
+                <div class="geography__projects-wrap">
+                    <!--Список проектов меняется в зависимости от выбранного региона, остальные срыты-->
+                    <div class="geography__projects projects" id="privolzhskij-fo" style="display: block;">
+                        <div class="projects__swiper swiper">
+                            <ul class="projects__slider swiper-wrapper">
+                                <li class="swiper-slide projects__slide project">
+                                    <div class="project__title">г. Нижний Новгород – Клубный дом на Ярославской</div>
+                                    <div class="project__content">
+                                        <picture>
+                                            <source type="image/webp" srcset="
+                                        ./img/geography/project1-600@1x.webp 1x,
+                                        ./img/geography/project1-600@2x.webp 2x,
+                                        ./img/geography/project1-600@3x.webp 3x">
+                                            <source type="image/jpeg" srcset="
+                                        ./img/geography/project1-600@1x.jpg 1x,
+                                        ./img/geography/project1-600@2x.jpg 2x,
+                                        ./img/geography/project1-600@3x.jpg 3x">
+                                            <img class="project__img" src="./img/geography/project1.jpg" alt="Клубный дом на Ярославской">
+                                        </picture>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide projects__slide project">
+                                    <div class="project__title">г. Чебоксары – ЖК Welltone</div>
+                                    <div class="project__content">
+                                        <picture>
+                                            <source type="image/webp" srcset="
+                                        ./img/geography/project1-600@1x.webp 1x,
+                                        ./img/geography/project1-600@2x.webp 2x,
+                                        ./img/geography/project1-600@3x.webp 3x">
+                                            <source type="image/jpeg" srcset="
+                                        ./img/geography/project1-600@1x.jpg 1x,
+                                        ./img/geography/project1-600@2x.jpg 2x,
+                                        ./img/geography/project1-600@3x.jpg 3x">
+                                            <img class="project__img" src="./img/geography/project1.jpg" alt="Проект">
+                                        </picture>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide projects__slide production">
+                                    <div class="production__title">Чем строить?</div>
+                                    <p>Мы предлагаем широкую линейку продукции</p>
+                                    <ul>
+                                        <li>Крупноформатные блоки</li>
+                                        <li>Облицовочный кирпич</li>
+                                    </ul>
+                                    <a href="#">Узнать больше</a>
+                                </li>
+                                <li class="swiper-slide projects__slide consult">
+                                    <div class="consult__title">Как стать партнером?</div>
+                                    <p>И получить выгодные предложения для вашего проекта</p>
+                                    <a href="#" class="button button--main">Получить консультацию</a>
+
+                                </li>
+                            </ul>
+                            <div class="swiper-button-prev">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="geography__projects projects" id="uralskij-fo">
+                        <div class="projects__swiper swiper">
+                            <ul class="projects__slider swiper-wrapper">
+                            </ul>
+                            <div class="swiper-button-prev">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="geography__projects projects" id="centralnyj-fo">
+                        <div class="projects__swiper swiper">
+                            <ul class="projects__slider swiper-wrapper">
+
+                            </ul>
+                            <div class="swiper-button-prev">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="geography__projects projects" id="severozapadnyj-fo">
+                        <div class="projects__swiper swiper">
+                            <ul class="projects__slider swiper-wrapper">
+
+                            </ul>
+                            <div class="swiper-button-prev">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="geography__projects projects" id="krasnodarskij-kraj">
+                        <div class="projects__swiper swiper">
+                            <ul class="projects__slider swiper-wrapper">
+
+                            </ul>
+                            <div class="swiper-button-prev">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg class="icon" width="15px" height="15px" fill="none">
+                                    <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="geography__advantages">
+                    <li>Отгрузка с завода 24/7</li>
+                    <li>Подтвержденное качество</li>
+                    <li>Выгодные партнерские условия</li>
+                </ul>
+            </div>
+        </section>
         <section class="statistics page__section">
             <div class="page__wrap">
                 <h2 class="page__subtitle page__subtitle--light">Эффективная статистика</h2>
@@ -268,10 +572,11 @@
             <div class="page__wrap">
                 <h2 class="page__subtitle">Для тех, кто ценит качество</h2>
             </div>
+            <!--При клике на сертификат в модальном окне должна открываться полная версия сертификата-->
             <div class="certificates__wrap-hidden">
-                <div class="certificates__container">
-                    <ul class="certificates__list">
-                        <li class="certificates__item">
+                <div class="certificates__container swiper">
+                    <ul class="certificates__list swiper-wrapper">
+                        <li class="certificates__item swiper-slide">
                             <a href="#">
                                 <picture>
                                     <source type="image/webp" srcset="
@@ -286,7 +591,7 @@
                                 </picture>
                             </a>
                         </li>
-                        <li class="certificates__item">
+                        <li class="certificates__item swiper-slide">
                             <a href="#">
                                 <picture>
                                     <source type="image/webp" srcset="
@@ -301,7 +606,7 @@
                                 </picture>
                             </a>
                         </li>
-                        <li class="certificates__item">
+                        <li class="certificates__item swiper-slide">
                             <a href="#">
                                 <picture>
                                     <source type="image/webp" srcset="
@@ -316,7 +621,7 @@
                                 </picture>
                             </a>
                         </li>
-                        <li class="certificates__item">
+                        <li class="certificates__item swiper-slide">
                             <a href="#">
                                 <picture>
                                     <source type="image/webp" srcset="
@@ -331,7 +636,7 @@
                                 </picture>
                             </a>
                         </li>
-                        <li class="certificates__item">
+                        <li class="certificates__item swiper-slide">
                             <a href="#">
                                 <picture>
                                     <source type="image/webp" srcset="
@@ -415,16 +720,95 @@
                 </a>
             </div>
         </section>
-
-
     </main>
+    <footer class="main-footer">
+        <div class="page__wrap">
+            <div class="main-footer__logo-wrap">
+                <a class="logo">
+                    <img class="logo__img" src="./img/logo/logo-light.png" alt="Логотип Кетра">
+                    <p class="logo__text">Завод строительной керамики</p>
+                </a>
+            </div>
+            <p class="main-footer__privacy-policy"><a href="#">Соглашение о конфиденциальности и защите персональных данных</a></p>
+            <p class="main-footer__phone"><a href="tel:+78005004942">8 (800) 500-49-42</a><span>Бесплатный звонок по всей России</span></p>
+            <div class="social-links">
+                <ul class="social-links__list">
+                    <li>
+                        <a href="#">
+                            <svg class="icon" width="18px" height="12px" fill="none">
+                                <use class="icon__symbol" xlink:href="#icon-vk"></use>
+                            </svg>
+                            <span class="visually-hidden">Вконтакте</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg class="icon" width="16px" height="12px" fill="none">
+                                <use class="icon__symbol" xlink:href="#icon-youtube"></use>
+                            </svg>
+                            <span class="visually-hidden">Ютуб</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
+            <ul class="site-nav">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Каталог продукции</a></li>
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Дистрибьютерам и партнерам</a></li>
+            </ul>
+            <nav class="catalog">
+                <ul class="catalog__list">
+                    <li>
+                        <a href="#">Кирпичи</a>
+                        <ul>
+                            <li><a href="#">Лицевой кирпич</a></li>
+                            <li><a href="#">Облицовочный кирпич</a></li>
+                            <li><a href="#">Керамический кирпич</a></li>
+                            <li><a href="#">Строительный пустотелый кирпич</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Блоки</a>
+                        <ul>
+                            <li><a href="#">Крупноформатный блок</a></li>
+                            <li><a href="#">Перегородочный блок</a></li>
+                            <li><a href="#">Поризованные керамические блоки</a></li>
+                            <li><a href="#">Климаблок</a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#">Камни</a>
+                        <ul>
+                            <li><a href="#">Крупноформатный камень</a></li>
+                            <li><a href="#">Пористый керамический камень</a></li>
+                            <li><a href="#">Пустотелый керамический камень</a></li>
+                        </ul>
+
+
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </footer>
     <!--https://romanyu.ru/skroll-s-uderzhaniem-knopki-myshi-->
     <script src="https://unpkg.com/scrollbooster@3/dist/scrollbooster.min.js" defer=""></script>
 
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/header-fixed.js"></script>
     <script src="https://unpkg.com/scrollbooster@2/dist/scrollbooster.min.js"></script>
+
     <script src="js/scrollbooster.js"></script>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/swiper-set.js"></script>
     <script src="js/script.js"></script>
+
+    <!--<script src="js/accordion.js"></script>-->
 </body>
 
 </html>

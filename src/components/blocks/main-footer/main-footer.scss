@@ -1,0 +1,161 @@
+.main-footer {
+    background-color: $text-black;
+    color: $light-gray;
+    padding: 30px 0;
+
+    @media (min-width: $xl-width) {
+        padding: 50px 0 55px;
+    }
+
+    & .page__wrap {
+        display: grid;
+        grid-template-columns: 1fr 145px;
+        grid-template-areas: "logo social" "privacy-policy phone";
+        column-gap: 30px;
+        row-gap: 20px;
+
+        @media (min-width: $lg-width) {
+            grid-template-columns: 1fr 2fr 1fr;
+            row-gap: 0;
+            grid-template-areas: 
+            "logo catalog menu"
+            "privacy-policy catalog menu"
+            "social catalog ."
+            ". catalog phone";
+        }
+
+        @media (min-width: $xl-width) {
+            column-gap: 70px;
+        }
+    }
+
+    &__privacy-policy {
+        @include mp;
+        
+        font-size: 10px;        
+        grid-area: privacy-policy;
+
+        @media (min-width: $lg-width) {
+            font-size: 12px;
+            margin-bottom: 40px;
+        }
+
+        & a {
+            width: 100%;
+            display: block;
+            color: $text-gray;
+            text-decoration-line: underline;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: $transition;
+
+            &:hover,
+            &:focus {
+                color: $light-gray;
+            }
+        }
+    }
+
+    &__phone {
+        @include mp;
+        font-size: 8.5px;
+        display: flex;
+        flex-direction: column;
+        grid-area: phone;
+
+        @media (min-width: $xl-width) {
+            align-self: end;
+        }
+
+        & a {
+            color: inherit;
+            text-decoration: none;
+            @include h3;
+        }
+
+        & span {
+            line-height: 10px;
+        }
+    }
+
+    &__logo-wrap {
+        grid-area: logo;
+
+        @media (min-width: $lg-width) {
+            margin-bottom: 58px;
+        }
+    }
+
+    & .social-links {
+        grid-area: social;
+        justify-self: end;
+
+        @media (min-width: $lg-width) {
+            justify-self: unset;
+        }
+    }
+
+    & .site-nav {
+        display: none;
+
+        @media (min-width: $lg-width) {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            grid-area: menu;
+        }
+    }
+
+    & .catalog {
+        display: none;
+
+        @media (min-width: $lg-width) {
+            display: block;    
+            width: 100%;
+
+            grid-area: catalog;
+        }
+
+        &__list {
+            @include list;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 30px;
+            row-gap: 30px;
+
+            @media (min-width: $xl-width) {
+                column-gap: 70px;
+            }
+
+            & > li {
+                @include menu;
+
+                & > a {
+                    display: inline-block;
+                    margin-bottom: 15px;
+                }
+
+                & ul {
+                    @include list;
+                    @include text-14;
+                    text-transform: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+
+                }
+            }
+
+            & a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+    }
+
+    
+}

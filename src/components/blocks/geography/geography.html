@@ -1,0 +1,223 @@
+<section class="geography page__section">
+    <div class="page__wrap">
+        <h2 class="page__subtitle">География проектов</h2>
+
+        <!--Блок .geography__select-region работает и показывается при разрешении до 1199px включительно, на экнанах шире вместо него показывается блок geography__region-list-wrap-->
+        <form class="geography__select-region">
+            <label for="region" class="visually-hidden">Выберите регион:</label>
+            <select id="region">
+                <option value="privolzhskij-fo" selected>Приволжский федеральный округ</option>
+                <option value="uralskij-fo">Уральский федеральный округ</option>
+                <option value="centralnyj-fo">Центральный федеральный округ</option>
+                <option value="severozapadnyj-fo">Северо-западный федеральный округ</option>
+                <option value="krasnodarskij-kraj">Краснодарский край</option>
+            </select>
+            <!--Список городов в этом блоке меняется в зависимости от выбранного региона-->            
+            <p class="city" id="privolzhskij-fo" style="display: block;">Казань, Нижний Новгород, Йошкар-Ола, Чебоксары, Ульяновск</p>
+            <p class="city" id="uralskij-fo">Екатеринбург</p>
+            <p class="city" id="centralnyj-fo">Москва и Московская область</p>
+            <p class="city" id="severozapadnyj-fo">Санкт-Петербург</p>
+            <p class="city" id="krasnodarskij-kraj">Краснодар</p>
+        </form>
+        <div class="geography__region-list-wrap regions">
+            <div class="regions__swiper swiper">
+                <ul class="regions__list swiper-wrapper">
+                    <li id="privolzhskij-fo" class="regions__item swiper-slide">
+                        <h3 class="title">Приволжский федеральный округ</h3>
+                        <p>Казань, Нижний Новгород, Йошкар-Ола, Чебоксары, Ульяновск</p>
+                        <a href="#">Узнать больше</a> 
+                    </li>
+                    <li id="uralskij-fo" class="regions__item swiper-slide">
+                        <h3 class="title">Уральский федеральный округ</h3>
+                        <p>Екатеринбург</p>
+                        <a href="#">Узнать больше</a> 
+                    </li>
+                    <li id="centralnyj-fo" class="regions__item swiper-slide">
+                        <h3 class="title">Центральный федеральный округ</h3>
+                        <p>Москва и Московская область</p>
+                        <a href="#">Узнать больше</a> 
+                    </li>
+                    <li id="severozapadnyj-fo" class="regions__item swiper-slide">
+                        <h3 class="title">Северо-западный федеральный округ</h3>
+                        <p>Санкт-Петербург</p>
+                        <a href="#">Узнать больше</a> 
+                    </li>
+                    <li id="krasnodarskij-kraj" class="regions__item swiper-slide">
+                        <h3 class="title">Краснодарский край</h3>
+                        <p>Краснодар</p>
+                        <a href="#">Узнать больше</a> 
+                    </li>
+                </ul>
+                <div class="swiper-button-prev">
+                    <svg class="icon" width="15px" height="15px" fill="none">
+                        <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                    </svg>
+                </div>
+                <div class="swiper-button-next">
+                    <svg class="icon" width="15px" height="15px" fill="none">
+                        <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                    </svg>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="geography__map-wrap">
+            <div class="geography__map">
+                <picture>
+                    <source type="image/webp" srcset="
+                        ../geography/privolzhskij-882@1x.webp 1x,
+                        ../geography/privolzhskij-882@2x.webp 2x,
+                        ../geography/privolzhskij-882@3x.webp 3x">
+                    <source type="image/png" srcset="
+                        ../geography/privolzhskij-882@1x.png 1x,
+                        ../geography/privolzhskij-882@2x.png 2x,
+                        ../geography/privolzhskij-882@3x.png 3x">
+                    <img src="../geography/privolzhskij.png" alt="">
+                </picture>
+            </div>
+            <p>Выберите мышкой регион, чтобы посмотреть проекты</p>
+        </div>
+
+        <div class="geography__projects-wrap">
+            <!--Список проектов меняется в зависимости от выбранного региона, остальные срыты-->
+            <div class="geography__projects projects" id="privolzhskij-fo" style="display: block;">
+                <div class="projects__swiper swiper">
+                    <ul class="projects__slider swiper-wrapper">
+                        <li class="swiper-slide projects__slide project">
+                            <div class="project__title">г. Нижний Новгород – Клубный дом на Ярославской</div>
+                            <div class="project__content">
+                                <picture>
+                                    <source type="image/webp" srcset="
+                                        ../geography/project1-600@1x.webp 1x,
+                                        ../geography/project1-600@2x.webp 2x,
+                                        ../geography/project1-600@3x.webp 3x">
+                                    <source type="image/jpeg" srcset="
+                                        ../geography/project1-600@1x.jpg 1x,
+                                        ../geography/project1-600@2x.jpg 2x,
+                                        ../geography/project1-600@3x.jpg 3x">
+                                    <img class="project__img" src="../geography/project1.jpg" alt="Клубный дом на Ярославской">
+                                </picture>
+                            </div>
+                        </li>
+                        <li class="swiper-slide projects__slide project">
+                            <div class="project__title">г. Чебоксары – ЖК Welltone</div>
+                            <div class="project__content">
+                                <picture>
+                                    <source type="image/webp" srcset="
+                                        ../geography/project1-600@1x.webp 1x,
+                                        ../geography/project1-600@2x.webp 2x,
+                                        ../geography/project1-600@3x.webp 3x">
+                                    <source type="image/jpeg" srcset="
+                                        ../geography/project1-600@1x.jpg 1x,
+                                        ../geography/project1-600@2x.jpg 2x,
+                                        ../geography/project1-600@3x.jpg 3x">
+                                    <img class="project__img" src="../geography/project1.jpg" alt="Проект">
+                                </picture>
+                            </div>
+                        </li>
+                        <li class="swiper-slide projects__slide production">
+                            <div class="production__title">Чем строить?</div>
+                            <p>Мы предлагаем широкую линейку продукции</p>
+                            <ul>
+                                <li>Крупноформатные блоки</li>
+                                <li>Облицовочный кирпич</li>
+                            </ul>
+                            <a href="#">Узнать больше</a>          
+                        </li>
+                        <li class="swiper-slide projects__slide consult">
+                            <div class="consult__title">Как стать партнером?</div>
+                            <p>И получить выгодные предложения для вашего проекта</p>
+                            <a href="#" class="button button--main">Получить консультацию</a> 
+    
+                        </li>                    
+                    </ul>
+                    <div class="swiper-button-prev">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                        </svg>
+                    </div>                    
+                </div>
+                
+                
+            </div>
+            <div class="geography__projects projects" id="uralskij-fo">
+                <div class="projects__swiper swiper">
+                    <ul class="projects__slider swiper-wrapper">
+                    </ul>
+                    <div class="swiper-button-prev">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                        </svg>
+                    </div>   
+                </div>
+            </div>
+            <div class="geography__projects projects" id="centralnyj-fo">
+                <div class="projects__swiper swiper">
+                    <ul class="projects__slider swiper-wrapper">
+
+                    </ul>
+                    <div class="swiper-button-prev">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                        </svg>
+                    </div>   
+                </div>
+            </div>
+            <div class="geography__projects projects" id="severozapadnyj-fo">
+                <div class="projects__swiper swiper">
+                    <ul class="projects__slider swiper-wrapper">
+
+                    </ul>
+                    <div class="swiper-button-prev">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                        </svg>
+                    </div>   
+                </div>
+            </div>
+            <div class="geography__projects projects" id="krasnodarskij-kraj">
+                <div class="projects__swiper swiper">
+                    <ul class="projects__slider swiper-wrapper">
+
+                    </ul>
+                    <div class="swiper-button-prev">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-left"></use>
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next">
+                        <svg class="icon" width="15px" height="15px" fill="none">
+                            <use class="icon__symbol" xlink:href="#icon-arrow-right"></use>
+                        </svg>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        
+        <ul class="geography__advantages">
+            <li>Отгрузка с завода 24/7</li>
+            <li>Подтвержденное качество</li>
+            <li>Выгодные партнерские условия</li>
+        </ul>        
+    </div>

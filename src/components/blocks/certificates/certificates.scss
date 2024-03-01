@@ -14,7 +14,7 @@
                 position: absolute;
                 top: -60px;                
                 width: 1px;
-                height: calc(100% + 60px);
+                height: calc(100% + 90px);
                 background-color: $dark-gray;
             }
 
@@ -40,29 +40,36 @@
             padding-left: 0;
             padding-right: 0;            
         }
+
+        &.swiper {
+            overflow: visible;
+        }
     }
 
     &__list {
         width: 100%;
-        overflow: hidden;
         @include list;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
 
-        @media (min-width: $lg-width) {
+        @media (min-width: $md-width) {
             grid-template-columns: 1fr 1fr 1fr;
         }
 
-        @media (min-width: $xl-width) {
-            width: calc(1200px / 3 * 5);            
+        @media (min-width: $lg-width) {
             display: flex;
             gap: unset;
+        }        
+
+        @media (min-width: $xl-width) {
+            width: calc(1200px / 3 * 5);
         }
     }
 
     &__item {
         position: relative;
+
         @media (min-width: $xl-width) {
             &::before,
             &::after {
@@ -76,13 +83,8 @@
             }
 
             &::before {
-                left: -1px;
-                display: none;
-            }
+                left: 0;
 
-            &::after {
-                right: 0;
-                display: none;
             }
 
             &:last-child {
@@ -103,13 +105,11 @@
             aspect-ratio: 210 / 297;
             width: 100%;
             object-fit: cover;
-            object-position: center;
-            border: 1px solid $dark-gray;
+            object-position: center;           
 
             @media (min-width: $xl-width) {
                 display: block;
-                width: 400px;
-                border-right: none;               
+                width: 400px;              
                 
             }
         }

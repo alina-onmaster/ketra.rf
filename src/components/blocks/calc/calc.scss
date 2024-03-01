@@ -20,6 +20,20 @@
     & .page__wrap {
         padding-left: 0;
         padding-right: 0;
+
+        @media (min-width: $xl-width) {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -60px;
+                left: 0;
+                width: 1px;
+                height: calc(100% + 130px);
+                background-color: $dark-gray;
+            }
+        }
     }
 
     & .page__subtitle {

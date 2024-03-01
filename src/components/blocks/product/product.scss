@@ -6,12 +6,23 @@
 
     & .page__wrap {
         @media (min-width: $xl-width) {
+            position: relative;
             display: grid;
             grid-template-columns: 370px 1fr;
             grid-template-areas: "title title" "text list" "button list";
             align-items: start;
             justify-items: start;
             column-gap: 220px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -60px;
+                left: 0;
+                width: 1px;
+                height: calc(100% + 165px);
+                background-color: $dark-gray;
+            }
         }
     }
     

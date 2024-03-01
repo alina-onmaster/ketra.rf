@@ -1,0 +1,37 @@
+.social-links {
+    &__list {
+        @include list;
+        display: flex;
+        gap: 10px;
+
+        & li {
+            & a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 32px;
+                height: 32px;
+                border: 1px solid $text-gray;
+                transition: $transition;
+
+                &:hover,
+                &:focus {
+                    color: $light-gray;
+                    border-color: $light-gray;
+
+                    & .icon {
+                        & use.icon__symbol {
+                            fill: $light-gray;
+                          }
+                    }
+                }
+
+                & .icon {
+                    & use.icon__symbol {
+                        fill: $text-gray;
+                      }
+                }
+            }
+        }
+    }
+}

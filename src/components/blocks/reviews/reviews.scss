@@ -115,10 +115,12 @@
             
             &__media {
                 aspect-ratio: 310 / 238;
+                margin-bottom: 20px;
 
                 @media (min-width: $xl-width) {
                     width: 295px;
                     aspect-ratio: 295 / 311;
+                    margin-bottom: 0;
                 }
     
                 & img {

@@ -1,0 +1,557 @@
+.geography {
+  overflow: hidden;
+    & .page__wrap {
+        padding-left: 0;
+        padding-right: 0;
+
+        @media (min-width: $xl-width) {
+            position: relative;
+            display: grid;
+            grid-template-columns: 400px 1fr 1fr;
+            grid-template-areas: "title map map" "advantages map map" "region map map" "projects projects projects";
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: -60px;                
+                width: 1px;
+                height: calc(100% + 195px);
+                background-color: $dark-gray;
+            }
+
+            &::before {
+                left: 0;
+            }
+
+            &::after {
+                right: 0;
+
+            }
+        }
+    }
+
+    & .page__subtitle {
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &::before {
+          left: 0;
+      }
+  }
+
+
+  &__select-region {
+    padding: 0 20px;
+      width: 100%;
+      overflow: hidden;
+
+      @media (min-width: $xl-width) {
+        display: none;
+      }
+
+      & select {
+          @include h3;
+          border: none;
+          width: 100%;
+          margin-bottom: 20px;
+
+      }
+
+      & p {
+          @include mp;
+          @include text;
+          margin-bottom: 15px;
+          display: none;
+      }
+  }
+
+  &__advantages {
+    @include list;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @include text-bold;
+
+    @media (min-width: $xl-width) {
+      grid-area: advantages;
+      padding: 0;
+    }
+
+    & li {
+      position: relative;
+      padding-left: 31px;
+
+      @media (min-width: $xl-width) {
+        padding-left: 20px;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;        
+        border-radius: 50%;
+      }
+
+      &::before {
+        width: 1.16em;
+        height: 1.16em;
+        border: 1px solid $dark-gray;
+        top: 0.1em;
+        left: 0;
+        @media (min-width: $xl-width) {
+          left: -0.6em;
+        }
+      }
+
+      &::after {
+        top: 0.45em;
+        left: 0.35em;
+        width: 0.5em;
+        height: 0.5em;
+        background-color: $main;
+
+        @media (min-width: $xl-width) {
+          left: -0.25em;
+        }
+      }
+    }
+  }
+
+  &__map-wrap {
+    display: none;
+
+    @media (min-width: $xl-width) {
+      position: relative;
+      padding: 30px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: end;
+      grid-area: map;
+      width: 100%;
+      height: 648px;
+    }
+
+  }
+
+  &__map-wrap p {
+    @include mp;
+    @include text-16;
+    padding-left: 30px;
+    width: 240px;
+    background-image: url("../icons/mouse.svg");
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: left top;
+  }
+
+  &__map {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 882px;
+    height: 508px;
+    z-index: 10;
+    background-image: url("../geography/map.png");
+    background-size: contain;
+    background-position: center;
+  }
+
+  &__map img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__projects-wrap {
+    @media (min-width: $xl-width) {
+      grid-area: projects;
+    }
+  }
+
+  &__projects {
+    display: none;    
+
+    @media (min-width: $lg-width) {
+      display: none;
+      padding: 0 20px;
+      margin-bottom: 30px;
+    }
+  
+    @media (min-width: $xl-width) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__region-list-wrap {
+    display: none;
+
+    @media (min-width: $xl-width) {
+      position: relative;
+      display: block;
+      grid-area: region;
+      align-self: end;
+      width: 100%;
+
+      
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $dark-gray;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        width: 50vw;
+        height: 1px;
+      }
+
+      &::after {
+        top: 0;
+        right: -1px;
+        width: 1px;
+        height: 100%;
+
+      }
+    }
+  }
+  
+}
+
+.projects {
+  position: relative;
+  
+  &__swiper {
+    position: relative;
+
+  & .swiper-button-next, 
+  & .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 30px;
+    top: unset;
+    left: unset;
+    right: unset;
+    margin: 0;
+
+    &::after {
+      display: none;
+    }
+
+    & .icon {
+      width: 15px;
+      height: 15px;
+
+      & use.icon__symbol {
+        fill: $text-gray;
+      }
+    }
+
+  }
+
+  & .swiper-button-next {
+    right: 30px;
+  }
+
+  & .swiper-button-prev {
+    right: 70px;
+  }
+  }
+  
+
+  &__slider {
+    @include list;
+  }
+
+  &__slide {
+    padding: 20px;
+
+    @media (min-width: $lg-width) {
+      position: relative;
+      width: 33.33%;
+      flex-grow: 1;
+      padding: 0;
+    } 
+  }
+}
+
+.projects__slide {
+  box-sizing: border-box;
+  @media (min-width: $xl-width) {
+    border: 1px solid $dark-gray;
+    border-right: none;
+  }
+  &.project {
+    @media (min-width: $xl-width) {
+
+      &:hover {
+        & .project__content {
+          filter: drop-shadow(0px 20px 70px rgba(51, 102, 153, 0.57));
+
+          & img {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+
+
+    &.active {            
+      background-color: #D9D9D9;
+
+      @media (min-width: $lg-width) {
+        background-color: unset;
+      }
+    }
+  }
+
+  &.production,
+  &.consult {
+    display: none;
+
+    @media (min-width: $lg-width) {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 0 0;
+    }
+
+    @media (min-width: $xl-width) {
+      aspect-ratio: 4 / 3;
+    }
+
+    & p {
+      @include mp;
+      @include text-16;
+      padding: 0 30px;
+      margin-bottom: 20px
+    }
+  }
+
+  & .production,
+  & .consult {
+    &__title {
+      padding: 0 30px;
+      @include link;
+      margin-bottom: 20px;
+    }
+  }
+
+  &.production {
+    
+    
+
+    & ul {
+      @include list;
+      @include text-16;
+      display: flex;
+      flex-direction: column;     
+
+      & li {
+        position: relative;
+        padding: 15px 30px;
+        border-bottom: 1px solid $dark-gray;
+
+        &:first-child {
+          border-top: 1px solid $dark-gray;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 15px;
+          height: 4px;
+          background-color: $main;
+          z-index: 1;
+        }
+      }
+    }
+
+    & a {
+      text-decoration: none;
+      @include mp;
+      @include link;
+      color: $urobilin;
+      display: inline-flex;
+      align-items: center;      
+      align-self: flex-end;
+      margin-top: auto;
+      margin-right: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &.consult {
+    align-items: flex-start;
+    & a {
+      display: inline-flex;
+      width: auto;
+      margin: auto 30px 30px;
+    }
+  }
+
+  & .project {
+    &__title {
+        @include link;
+        position: relative;
+        padding: 0 30px 0 0;
+        cursor: pointer;
+
+        @media (min-width: $lg-width) {
+          
+          position: absolute;
+          top: 30px;
+          left: 30px;
+          right: 30px;
+          padding: 0;
+          z-index: 15;
+        }
+    
+        &::before,
+        &::after {
+          content: "";
+          width: 10px;
+          height: 1px;
+          background-color: black;
+          position: absolute;
+          top: 8px;
+          transition: all 0.3s ease 0s;
+
+          @media (min-width: $lg-width) {
+            display: none;
+          }
+        }
+    
+        &::before {
+          transform: rotate(-40deg);            
+          right: 0;
+        }
+    
+        &::after {
+          transform: rotate(40deg);            
+          right: 8px;
+        }
+    
+        &.active {
+                &::before {
+            transform: rotate(40deg);
+          }
+    
+          &::after {
+            transform: rotate(-40deg);
+          }
+        }
+    }
+
+    &__content {
+      display: none;
+      padding: 10px 0 0 0;
+
+      @media (min-width: $lg-width) {
+        padding: 0;
+        display: flex;
+      }
+      
+
+      & img {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          object-position: center;
+          object-fit: cover;
+
+          @media (min-width: $lg-width) {
+            aspect-ratio: 1 / 1;
+          }
+
+          @media (min-width: $xl-width) {
+            aspect-ratio: 4 / 3;
+            transition: $transition;
+            opacity: 0;
+          }
+      }
+    }          
+  } 
+}
+
+.regions {
+  &__swiper {
+    position: relative;
+
+    & .swiper-button-next, 
+    & .swiper-button-prev {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      bottom: 30px;
+      top: unset;
+      left: unset;
+      right: unset;
+      margin: 0;
+
+      &::after {
+        display: none;
+      }
+
+      & .icon {
+        width: 15px;
+        height: 15px;
+
+        & use.icon__symbol {
+          fill: $text-gray;
+        }
+      }
+
+    }
+
+    & .swiper-button-next {
+      right: 30px;
+    }
+
+    & .swiper-button-prev {
+      right: 70px;
+    }
+  }
+  &__list {
+    @include list;
+
+    & li {
+      aspect-ratio: 40 / 35;
+      width: 100%;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+
+      & .title {
+        @include h3;
+        margin-bottom: 30px;
+      }
+
+      & p {
+        @include mp;
+        @include text;
+      }
+
+      & a {
+        text-decoration: none;
+        @include mp;
+        @include link;
+        color: $urobilin;
+        display: inline-flex;
+        margin-top: auto;
+        align-self: flex-start;
+
+      }
+    }
+  }  
+}

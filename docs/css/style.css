@@ -224,7 +224,6 @@ body {
   line-height: 1.38;
   font-weight: 300;
   font-style: normal;
-  line-height: 0;
   margin: 0;
   padding: 0;
   color: #2E2E2E;
@@ -261,6 +260,7 @@ img {
 }
 
 picture {
+  display: block;
   margin: 0;
   padding: 0;
   line-height: 0;
@@ -381,8 +381,15 @@ picture {
 
 .main-header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  transition: all 0.3s ease;
   z-index: 100;
+}
+
+.main-header.out {
+  transform: translateY(-100%);
 }
 
 .main-header--dark .main-header__wrap {
@@ -634,6 +641,10 @@ picture {
   align-items: center;
 }
 
+.main-slider__pagination-wrap {
+  display: none;
+}
+
 .main-slider .slide {
   position: relative;
 }
@@ -672,6 +683,7 @@ picture {
   max-width: 1200px;
   transform: translateX(-50%);
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .main-slider .slide__title {
@@ -1005,6 +1017,447 @@ picture {
   -moz-appearance: textfield;
 }
 
+.geography {
+  overflow: hidden;
+}
+
+.geography .page__wrap {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.geography .page__subtitle {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.geography .page__subtitle::before {
+  left: 0;
+}
+
+.geography__select-region {
+  padding: 0 20px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.geography__select-region select {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  border: none;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.geography__select-region p {
+  margin: 0;
+  padding: 0;
+  font-family: "NotoSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 300;
+  font-style: normal;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.geography__advantages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.geography__advantages li {
+  position: relative;
+  padding-left: 31px;
+}
+
+.geography__advantages li::before,
+.geography__advantages li::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.geography__advantages li::before {
+  width: 1.16em;
+  height: 1.16em;
+  border: 1px solid #4E4E4E;
+  top: 0.1em;
+  left: 0;
+}
+
+.geography__advantages li::after {
+  top: 0.45em;
+  left: 0.35em;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: #FEC846;
+}
+
+.geography__map-wrap {
+  display: none;
+}
+
+.geography__map-wrap p {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: 300;
+  font-style: normal;
+  padding-left: 30px;
+  width: 240px;
+  background-image: url("../img/icons/mouse.svg");
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: left top;
+}
+
+.geography__map {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 882px;
+  height: 508px;
+  z-index: 10;
+  background-image: url("../img/geography/map.png");
+  background-size: contain;
+  background-position: center;
+}
+
+.geography__map img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.geography__projects {
+  display: none;
+}
+
+.geography__region-list-wrap {
+  display: none;
+}
+
+.projects {
+  position: relative;
+}
+
+.projects__swiper {
+  position: relative;
+}
+
+.projects__swiper .swiper-button-next,
+.projects__swiper .swiper-button-prev {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 30px;
+  top: unset;
+  left: unset;
+  right: unset;
+  margin: 0;
+}
+
+.projects__swiper .swiper-button-next::after,
+.projects__swiper .swiper-button-prev::after {
+  display: none;
+}
+
+.projects__swiper .swiper-button-next .icon,
+.projects__swiper .swiper-button-prev .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.projects__swiper .swiper-button-next .icon use.icon__symbol,
+.projects__swiper .swiper-button-prev .icon use.icon__symbol {
+  fill: #5C5C5C;
+}
+
+.projects__swiper .swiper-button-next {
+  right: 30px;
+}
+
+.projects__swiper .swiper-button-prev {
+  right: 70px;
+}
+
+.projects__slider {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projects__slide {
+  padding: 20px;
+}
+
+.projects__slide {
+  box-sizing: border-box;
+}
+
+.projects__slide.project.active {
+  background-color: #D9D9D9;
+}
+
+.projects__slide.production,
+.projects__slide.consult {
+  display: none;
+}
+
+.projects__slide.production p,
+.projects__slide.consult p {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: 300;
+  font-style: normal;
+  padding: 0 30px;
+  margin-bottom: 20px;
+}
+
+.projects__slide .production__title,
+.projects__slide .consult__title {
+  padding: 0 30px;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.projects__slide.production ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: 300;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects__slide.production ul li {
+  position: relative;
+  padding: 15px 30px;
+  border-bottom: 1px solid #4E4E4E;
+}
+
+.projects__slide.production ul li:first-child {
+  border-top: 1px solid #4E4E4E;
+}
+
+.projects__slide.production ul li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 15px;
+  height: 4px;
+  background-color: #FEC846;
+  z-index: 1;
+}
+
+.projects__slide.production a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  color: #ECB226;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  margin-top: auto;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.projects__slide.consult {
+  align-items: flex-start;
+}
+
+.projects__slide.consult a {
+  display: inline-flex;
+  width: auto;
+  margin: auto 30px 30px;
+}
+
+.projects__slide .project__title {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0 30px 0 0;
+  cursor: pointer;
+}
+
+.projects__slide .project__title::before,
+.projects__slide .project__title::after {
+  content: "";
+  width: 10px;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  top: 8px;
+  transition: all 0.3s ease 0s;
+}
+
+.projects__slide .project__title::before {
+  transform: rotate(-40deg);
+  right: 0;
+}
+
+.projects__slide .project__title::after {
+  transform: rotate(40deg);
+  right: 8px;
+}
+
+.projects__slide .project__title.active::before {
+  transform: rotate(40deg);
+}
+
+.projects__slide .project__title.active::after {
+  transform: rotate(-40deg);
+}
+
+.projects__slide .project__content {
+  display: none;
+  padding: 10px 0 0 0;
+}
+
+.projects__slide .project__content img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.regions__swiper {
+  position: relative;
+}
+
+.regions__swiper .swiper-button-next,
+.regions__swiper .swiper-button-prev {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 30px;
+  top: unset;
+  left: unset;
+  right: unset;
+  margin: 0;
+}
+
+.regions__swiper .swiper-button-next::after,
+.regions__swiper .swiper-button-prev::after {
+  display: none;
+}
+
+.regions__swiper .swiper-button-next .icon,
+.regions__swiper .swiper-button-prev .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.regions__swiper .swiper-button-next .icon use.icon__symbol,
+.regions__swiper .swiper-button-prev .icon use.icon__symbol {
+  fill: #5C5C5C;
+}
+
+.regions__swiper .swiper-button-next {
+  right: 30px;
+}
+
+.regions__swiper .swiper-button-prev {
+  right: 70px;
+}
+
+.regions__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.regions__list li {
+  aspect-ratio: 40/35;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.regions__list li .title {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.regions__list li p {
+  margin: 0;
+  padding: 0;
+  font-family: "NotoSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.regions__list li a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  color: #ECB226;
+  display: inline-flex;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
 .statistics {
   position: relative;
   background-color: #000000;
@@ -1201,9 +1654,12 @@ picture {
   max-width: 1200px;
 }
 
+.certificates__container.swiper {
+  overflow: visible;
+}
+
 .certificates__list {
   width: 100%;
-  overflow: hidden;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1228,7 +1684,6 @@ picture {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  border: 1px solid #4E4E4E;
 }
 
 .reviews--section .page__wrap {
@@ -1253,6 +1708,7 @@ picture {
 
 .reviews__item .review__media {
   aspect-ratio: 310/238;
+  margin-bottom: 20px;
 }
 
 .reviews__item .review__media img {
@@ -1327,6 +1783,173 @@ picture {
   margin-top: 30px;
 }
 
+.social-links__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+.social-links__list li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #5C5C5C;
+  transition: 0.4s;
+}
+
+.social-links__list li a:hover,
+.social-links__list li a:focus {
+  color: #F1F1F1;
+  border-color: #F1F1F1;
+}
+
+.social-links__list li a:hover .icon use.icon__symbol,
+.social-links__list li a:focus .icon use.icon__symbol {
+  fill: #F1F1F1;
+}
+
+.social-links__list li a .icon use.icon__symbol {
+  fill: #5C5C5C;
+}
+
+.main-footer {
+  background-color: #2E2E2E;
+  color: #F1F1F1;
+  padding: 30px 0;
+}
+
+.main-footer .page__wrap {
+  display: grid;
+  grid-template-columns: 1fr 145px;
+  grid-template-areas: "logo social" "privacy-policy phone";
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  row-gap: 20px;
+}
+
+.main-footer__privacy-policy {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  grid-area: privacy-policy;
+}
+
+.main-footer__privacy-policy a {
+  width: 100%;
+  display: block;
+  color: #5C5C5C;
+  text-decoration-line: underline;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.main-footer__privacy-policy a:hover,
+.main-footer__privacy-policy a:focus {
+  color: #F1F1F1;
+}
+
+.main-footer__phone {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  margin: 0;
+  padding: 0;
+  font-size: 8.5px;
+  display: flex;
+  flex-direction: column;
+  grid-area: phone;
+}
+
+.main-footer__phone a {
+  color: inherit;
+  text-decoration: none;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.main-footer__phone span {
+  line-height: 10px;
+}
+
+.main-footer__logo-wrap {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: logo;
+}
+
+.main-footer .social-links {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: social;
+  justify-self: end;
+}
+
+.main-footer .site-nav {
+  display: none;
+}
+
+.main-footer .catalog {
+  display: none;
+}
+
+.main-footer .catalog__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  row-gap: 30px;
+}
+
+.main-footer .catalog__list > li {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.main-footer .catalog__list > li > a {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.main-footer .catalog__list > li ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 14px;
+  line-height: 1.1;
+  font-weight: 300;
+  font-style: normal;
+  text-transform: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-footer .catalog__list a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @media (min-width: 768px) {
   .product__list {
     -moz-column-count: 2;
@@ -1346,6 +1969,10 @@ picture {
     grid-template-columns: 1fr 1fr;
   }
 
+  .certificates__list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .reviews__list {
     grid-template-columns: 1fr 1fr;
   }
@@ -1360,6 +1987,40 @@ picture {
   .page__title {
     font-size: 54px;
     line-height: 1.48;
+  }
+
+  .main-slider__pagination-wrap {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1200px;
+  }
+
+  .main-slider__pagination-wrap .swiper-pagination {
+    width: auto;
+    bottom: 20px;
+    right: 20px;
+    left: unset;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-slider__pagination-wrap .swiper-pagination-bullet {
+    width: 20px;
+    height: 9px;
+    margin-bottom: 2px !important;
+    border-radius: 0;
+    background: #5C5C5C;
+    opacity: 1;
+    transition: all 0.4s;
+  }
+
+  .main-slider__pagination-wrap .swiper-pagination-bullet-active {
+    background: #FEC846;
+    margin-bottom: 10px !important;
   }
 
   .main-slider .slide__title {
@@ -1404,6 +2065,77 @@ picture {
 
   .calc__form fieldset {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .geography__select-region select {
+    font-size: 24px;
+  }
+
+  .geography__select-region p {
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
+  .geography__advantages {
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
+  .geography__projects {
+    display: none;
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+
+  .projects__slide {
+    position: relative;
+    width: 33.33%;
+    flex-grow: 1;
+    padding: 0;
+  }
+
+  .projects__slide.project.active {
+    background-color: unset;
+  }
+
+  .projects__slide.production,
+  .projects__slide.consult {
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0;
+  }
+
+  .projects__slide .project__title {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    padding: 0;
+    z-index: 15;
+  }
+
+  .projects__slide .project__title::before,
+  .projects__slide .project__title::after {
+    display: none;
+  }
+
+  .projects__slide .project__content {
+    padding: 0;
+    display: flex;
+  }
+
+  .projects__slide .project__content img {
+    aspect-ratio: 1/1;
+  }
+
+  .regions__list li .title {
+    font-size: 24px;
+  }
+
+  .regions__list li p {
+    font-size: 20px;
+    line-height: 1.35;
   }
 
   .statistics .page__wrap {
@@ -1482,7 +2214,8 @@ picture {
   }
 
   .certificates__list {
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    gap: unset;
   }
 
   .reviews--section .page__wrap {
@@ -1522,6 +2255,77 @@ picture {
     align-self: center;
     margin-top: 0;
     grid-area: link-more;
+  }
+
+  .main-footer .page__wrap {
+    grid-template-columns: 1fr 2fr 1fr;
+    row-gap: 0;
+    grid-template-areas: "logo catalog menu" "privacy-policy catalog menu" "social catalog ." ". catalog phone";
+  }
+
+  .main-footer__privacy-policy {
+    font-size: 12px;
+    margin-bottom: 40px;
+  }
+
+  .main-footer__phone a {
+    font-size: 24px;
+  }
+
+  .main-footer__logo-wrap {
+    margin-bottom: 58px;
+  }
+
+  .main-footer .social-links {
+    justify-self: unset;
+  }
+
+  .main-footer .site-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-area: menu;
+  }
+
+  .main-footer .catalog {
+    display: block;
+    width: 100%;
+    grid-area: catalog;
+  }
+
+  .main-footer__privacy-policy {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+
+  .main-footer__phone {
+    -ms-grid-row: 7;
+    -ms-grid-column: 3;
+  }
+
+  .main-footer__logo-wrap {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .main-footer .social-links {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+  }
+}
+
+@media (min-width: 1024px){
+
+  .main-footer .site-nav {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 3;
+  }
+
+  .main-footer .catalog {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 7;
+    -ms-grid-column: 2;
   }
 }
 
@@ -1641,6 +2445,7 @@ picture {
   }
 
   .product .page__wrap {
+    position: relative;
     display: grid;
     grid-template-columns: 370px 1fr;
     grid-template-areas: "title title" "text list" "button list";
@@ -1648,6 +2453,16 @@ picture {
     justify-items: start;
     -moz-column-gap: 220px;
          column-gap: 220px;
+  }
+
+  .product .page__wrap::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 1px;
+    height: calc(100% + 165px);
+    background-color: #4E4E4E;
   }
 
   .product__title {
@@ -1676,6 +2491,20 @@ picture {
 
   .calc.page__section {
     padding-bottom: 70px;
+  }
+
+  .calc .page__wrap {
+    position: relative;
+  }
+
+  .calc .page__wrap::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 1px;
+    height: calc(100% + 130px);
+    background-color: #4E4E4E;
   }
 
   .calc__column .button--secondary {
@@ -1721,6 +2550,125 @@ picture {
 
   .calc__form fieldset {
     margin-bottom: 40px;
+  }
+
+  .geography .page__wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: 400px 1fr 1fr;
+    grid-template-areas: "title map map" "advantages map map" "region map map" "projects projects projects";
+  }
+
+  .geography .page__wrap::before,
+  .geography .page__wrap::after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    width: 1px;
+    height: calc(100% + 195px);
+    background-color: #4E4E4E;
+  }
+
+  .geography .page__wrap::before {
+    left: 0;
+  }
+
+  .geography .page__wrap::after {
+    right: 0;
+  }
+
+  .geography__select-region {
+    display: none;
+  }
+
+  .geography__advantages {
+    grid-area: advantages;
+    padding: 0;
+  }
+
+  .geography__advantages li {
+    padding-left: 20px;
+  }
+
+  .geography__advantages li::before {
+    left: -0.6em;
+  }
+
+  .geography__advantages li::after {
+    left: -0.25em;
+  }
+
+  .geography__map-wrap {
+    position: relative;
+    padding: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    grid-area: map;
+    width: 100%;
+    height: 648px;
+  }
+
+  .geography__projects-wrap {
+    grid-area: projects;
+  }
+
+  .geography__projects {
+    margin: 0;
+    padding: 0;
+  }
+
+  .geography__region-list-wrap {
+    position: relative;
+    display: block;
+    grid-area: region;
+    align-self: end;
+    width: 100%;
+  }
+
+  .geography__region-list-wrap::before,
+  .geography__region-list-wrap::after {
+    content: "";
+    position: absolute;
+    background-color: #4E4E4E;
+  }
+
+  .geography__region-list-wrap::before {
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 1px;
+  }
+
+  .geography__region-list-wrap::after {
+    top: 0;
+    right: -1px;
+    width: 1px;
+    height: 100%;
+  }
+
+  .projects__slide {
+    border: 1px solid #4E4E4E;
+    border-right: none;
+  }
+
+  .projects__slide.project:hover .project__content {
+    filter: drop-shadow(0px 20px 70px rgba(51, 102, 153, 0.57));
+  }
+
+  .projects__slide.project:hover .project__content img {
+    opacity: 1;
+  }
+
+  .projects__slide.production,
+  .projects__slide.consult {
+    aspect-ratio: 4/3;
+  }
+
+  .projects__slide .project__content img {
+    aspect-ratio: 4/3;
+    transition: 0.4s;
+    opacity: 0;
   }
 
   .statistics.page__section {
@@ -1934,7 +2882,7 @@ picture {
     position: absolute;
     top: -60px;
     width: 1px;
-    height: calc(100% + 60px);
+    height: calc(100% + 90px);
     background-color: #4E4E4E;
   }
 
@@ -1953,8 +2901,6 @@ picture {
 
   .certificates__list {
     width: 2000px;
-    display: flex;
-    gap: unset;
   }
 
   .certificates__item::before,
@@ -1969,13 +2915,7 @@ picture {
   }
 
   .certificates__item::before {
-    left: -1px;
-    display: none;
-  }
-
-  .certificates__item::after {
-    right: 0;
-    display: none;
+    left: 0;
   }
 
   .certificates__item:last-child::after {
@@ -1986,7 +2926,6 @@ picture {
   .certificates__item img {
     display: block;
     width: 400px;
-    border-right: none;
   }
 
   .reviews--section.page__section {
@@ -2054,6 +2993,7 @@ picture {
   .reviews__item .review__media {
     width: 295px;
     aspect-ratio: 295/311;
+    margin-bottom: 0;
   }
 
   .reviews__item .review__author {
@@ -2076,10 +3016,34 @@ picture {
     margin-right: 20px;
   }
 
+  .main-footer {
+    padding: 50px 0 55px;
+  }
+
+  .main-footer .page__wrap {
+    -moz-column-gap: 70px;
+         column-gap: 70px;
+  }
+
+  .main-footer__phone {
+    align-self: end;
+  }
+
+  .main-footer .catalog__list {
+    -moz-column-gap: 70px;
+         column-gap: 70px;
+  }
+
   .product .page__wrap > .page__subtitle {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
+  }
+
+  .geography .page__wrap > .page__subtitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
   }
 
   .product .page__wrap > .statistics__list {
@@ -2100,6 +3064,12 @@ picture {
     -ms-grid-column-span: 3;
   }
 
+  .geography .page__wrap > .page__subtitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
   .product .page__wrap > .news__list {
     -ms-grid-row: 2;
     -ms-grid-row-span: 2;
@@ -2111,6 +3081,12 @@ picture {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
+  }
+
+  .geography .page__wrap > .page__subtitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
   }
 
   .product .page__wrap > .reviews__list {
@@ -2294,6 +3270,12 @@ picture {
     -ms-grid-column-span: 3;
   }
 
+  .geography .page__wrap > .product__title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
   .product .page__wrap > .product__text {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
@@ -2307,6 +3289,29 @@ picture {
   }
 
   .product__link-more {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+
+  .geography__advantages {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+
+  .geography__map-wrap {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+  }
+
+  .geography__projects-wrap {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .geography__region-list-wrap {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
   }

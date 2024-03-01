@@ -1,6 +1,62 @@
-<section class="main-slider">
-    <ul class="main-slider__list">
-        <li class="main-slider__item slide">
+<section class="main-slider swiper">
+    <ul class="main-slider__list swiper-wrapper">
+        <li class="main-slider__item slide swiper-slide">
+            <picture>
+                <source type="image/webp" media="(min-width: 1025px)" srcset="
+                    ../main-slider/slide1-2000.webp,
+                    ../main-slider/slide1-2000@2x.webp 2x,
+                    ../main-slider/slide1-2000@3x.webp 3x">
+                <source type="image/webp" srcset="
+                    ../main-slider/slide1-1024@1x.webp 1x,
+                    ../main-slider/slide1-1024@2x.webp 2x,
+                    ../main-slider/slide1-1024@3x.webp 3x">
+                <source type="image/jpeg" media="(min-width: 1025px)" srcset="
+                    ../main-slider/slide1-2000.jpg 1x,
+                    ../main-slider/slide1-2000@2x.jpg 2x,
+                    ../main-slider/slide1-2000@3x.jpg 3x">
+                <source type="image/jpeg" srcset="
+                    ../main-slider/slide1-1024@1x.jpg 1x,
+                    ../main-slider/slide1-1024@2x.jpg 2x,
+                    ../main-slider/slide1-1024@3x.jpg 3x">
+                <img class="slide__img" src="../main-slider/slide1.jpg" alt="Кирпичи по новейшим технологиям">
+            </picture>           
+            <div class="slide__wrap">
+                <h2 class="slide__title">кирпичи по новейшим технологиям</h2>
+                <div class="slide__text">
+                    <p>Еще крепче, еще легче </p>
+                </div>                
+                <a class="button button--main slide__button">Перейти в каталог</a>
+            </div>
+        </li>
+        <li class="main-slider__item slide swiper-slide">
+            <picture>
+                <source type="image/webp" media="(min-width: 1025px)" srcset="
+                    ../main-slider/slide1-2000.webp,
+                    ../main-slider/slide1-2000@2x.webp 2x,
+                    ../main-slider/slide1-2000@3x.webp 3x">
+                <source type="image/webp" srcset="
+                    ../main-slider/slide1-1024@1x.webp 1x,
+                    ../main-slider/slide1-1024@2x.webp 2x,
+                    ../main-slider/slide1-1024@3x.webp 3x">
+                <source type="image/jpeg" media="(min-width: 1025px)" srcset="
+                    ../main-slider/slide1-2000.jpg 1x,
+                    ../main-slider/slide1-2000@2x.jpg 2x,
+                    ../main-slider/slide1-2000@3x.jpg 3x">
+                <source type="image/jpeg" srcset="
+                    ../main-slider/slide1-1024@1x.jpg 1x,
+                    ../main-slider/slide1-1024@2x.jpg 2x,
+                    ../main-slider/slide1-1024@3x.jpg 3x">
+                <img class="slide__img" src="../main-slider/slide1.jpg" alt="Кирпичи по новейшим технологиям">
+            </picture>           
+            <div class="slide__wrap">
+                <h2 class="slide__title">кирпичи по новейшим технологиям</h2>
+                <div class="slide__text">
+                    <p>Еще крепче, еще легче </p>
+                </div>                
+                <a class="button button--main slide__button">Перейти в каталог</a>
+            </div>
+        </li>
+        <li class="main-slider__item slide swiper-slide">
             <picture>
                 <source type="image/webp" media="(min-width: 1025px)" srcset="
                     ../main-slider/slide1-2000.webp,
@@ -29,4 +85,8 @@
             </div>
         </li>
     </ul>
+    <div class="main-slider__pagination-wrap">
+        <div class="swiper-pagination"></div>
+    </div>
+    
 </section>

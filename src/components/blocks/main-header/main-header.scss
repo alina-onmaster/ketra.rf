@@ -1,7 +1,13 @@
 .main-header {
     position: fixed;
+    top: 0; left: 0;
     width: 100%;
+    transition: all .3s ease;
     z-index: 100;
+
+    &.out {
+        transform: translateY(-100%);
+      }
 
     &--dark {
         & .main-header {
